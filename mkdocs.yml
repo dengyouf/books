@@ -1,13 +1,13 @@
 # Project information
 site_name: 运维笔记
-site_url: https://dengyouf.github.io/mkdocs-material/
+site_url: https://dengyouf.github.io/books
 site_author: dengyouf
 site_description: >-
   使用 Markdown 编写文档，仅需几分钟即可构建一个专业的静态网站 —— 支持全文搜索、灵活定制，覆盖 60 多种语言，兼容所有设备。
 
 # Repository
 repo_name: dengyouf/mkdocs-material
-repo_url: https://github.com/dengyouf/mkdocs-material
+repo_url: https://github.com/dengyouf/books
 
 # Copyright
 copyright: Copyright &copy; 2016 - 2025 Martin Donath
@@ -154,7 +154,12 @@ not_in_nav: |
 
 # Page tree
 nav:
-  - 主页: index.md
-  - 日志系统:
-    - filebeat: logging/filebeat.md
+  # - 主页: index.md
+  - Kubernetes:
+    - Installation:
+        - kubeadm:
+            - v1.30.3: "k8s/kubeadm-v1.30.12.md"
+    - Private Registry:
+        - habor:
+            - v2.14.0: "k8s/harbor.md"
 
