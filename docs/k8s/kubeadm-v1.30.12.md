@@ -566,11 +566,85 @@ Hello MyApp | Version: v1 | <a href="hostname.html">Pod Name</a>
 
 ## 安装插件Add-On
 
-### metrics-server
-
+### 1.metrics-server
+```shell
+wget https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.7.2/components.yaml
+vim commponents.yaml
+    spec:
+      containers:
+      - args:
+        - --cert-dir=/tmp
+        - --secure-port=10250
+        - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+        - --kubelet-use-node-status-port
+        - --metric-resolution=15s
+        - --kubelet-insecure-tls
+kubectl apply -f commponents.yaml
+kubectl  top nodes
+NAME           CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%
+k8s-master01   226m         11%    889Mi           11%
+k8s-worker01   98m          4%     699Mi           8%
+k8s-worker02   98m          4%     1442Mi          18%
+k8s-worker03   101m         5%     544Mi           6%
+```
 ### dashboard
+#### 1.安装dashboard
+```shell
+wget https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
+kubectl apply -f recommended.yaml
+kubectl  get pod  -n kubernetes-dashboard
+NAME                                         READY   STATUS    RESTARTS   AGE
+dashboard-metrics-scraper-795895d745-z468j   1/1     Running   0          61s
+kubernetes-dashboard-56cf4b97c5-s6ndg        1/1     Running   0          61s
+```
+#### 2.修改svc类型为nodeport
+```shell
+kubectl patch svc kubernetes-dashboard -n kubernetes-dashboard -p '{"spec": {"type": "NodePort"}}'
+kubectl  get svc -n kubernetes-dashboard
+NAME                        TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)         AGE
+dashboard-metrics-scraper   ClusterIP   10.104.234.188   <none>        8000/TCP        3m11s
+kubernetes-dashboard        NodePort    10.107.61.90     <none>        443:30403/TCP   3m11s
+```
+#### 3.创建用户
+```shell
+cat > admin-user.yaml << 'EOF'
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: admin-user
+  namespace: kubernetes-dashboard
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: admin-user
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: admin-user
+  namespace: kubernetes-dashboard
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: admin-user
+  namespace: kubernetes-dashboard
+  annotations:
+    kubernetes.io/service-account.name: "admin-user"
+type: kubernetes.io/service-account-token
+EOF
+kubectl apply -f admin-user.yaml
+```
+#### 4.获取token
+```shell
+kubectl get secret admin-user -n kubernetes-dashboard -o jsonpath="{.data.token}" | base64 -d
+```
 
-
+![img.png](pic/dashboard01.png)
 ## 卸载集群
 
 ### 1.卸载整个集群
@@ -592,6 +666,6 @@ kubectl drain k8s-worker03
 # 3. 删除节点
 kubectl delete node  k8s-worker03
 # 4. 执行reset跟后续的清理工作
-kubeadm reset
+kubeadm reset.
 rm -rf /etc/kubernetes /var/lib/kubelet/ /var/lib/cni/ /etc/cni/net.d/ /var/lib/etcd/
 ```

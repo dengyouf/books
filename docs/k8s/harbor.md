@@ -247,5 +247,39 @@ kubectl create secret docker-registry harbor-secret \
   --docker-username=admin \
   --docker-password=Harbor12345 \
   --docker-email=harbro@devops.com \
-  -n kube-system
+  -n default
+
+cat myapp.yaml
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: myapp
+  name: myapp
+  namespace: default
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 3
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: myapp
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      imagePullSecrets:
+        - name: harbor-secret
+      containers:
+      - image: harbor.devops.io/baseimages/myapp:v1
+        imagePullPolicy: IfNotPresent
+        name: myapp
+      restartPolicy: Always
 ```
