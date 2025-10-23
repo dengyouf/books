@@ -134,7 +134,7 @@ mysql
 └── values.yaml
 ```
 
-## 快速创建charts
+## Helm实践
 
 ### 1. 初始化charts模版
 
@@ -193,4 +193,28 @@ REVISION	UPDATED                 	STATUS    	CHART      	APP VERSION	DESCRIPTION
 2       	Thu Oct 23 14:49:46 2025	deployed  	myapp-0.1.0	v2         	Upgrade complete
 #
 ~# helm rollback myapp 1
+```
+
+### 7.打包
+
+```shell
+~# helm package myapp --version 0.0.1
+Successfully packaged chart and saved it to: /root/myapp-0.0.1.tgz
+```
+
+### 8.推送到harbor仓库
+
+```shell
+cp  /etc/containerd/certs.d/harbor.devops.io/ca.crt  /usr/local/share/ca-certificates/harbor.devops.io.crt
+update-ca-certificates
+export HELM_EXPERIMENTAL_OCI=1
+helm registry login harbor.devops.io -u admin -p Harbor12345
+~# helm push myapp-0.0.1.tgz  oci://harbor.devops.io/charts
+```
+
+### 9.使用charts
+
+```shell
+~# helm install myapp oci://harbor.devops.io/charts/myapp  --version 0.0.1
+~# helm pull oci://harbor.devops.io/charts/myapp --version 0.0.1 --untar
 ```
