@@ -162,26 +162,19 @@ resources:
     memory: 128Mi
 ```
 
-### 3. 定制Charts.yaml
-
-```shell
-~# sed -i 's@appVersion: "1.16.0"@appVersion: "v1"@' myapp/Chart.yaml
-~# helm upgrade --install  myapp myapp --set image.tag="v2"
-```
-
-### 4.测试安装
+### 3.测试安装
 
 ```shell
 ~# helm upgrade --install  myapp myapp
 ~# helm ls
 NAME   	NAMESPACE	REVISION	UPDATED                                	STATUS  	CHART      	APP VERSION
-myapp  	default  	1       	2025-10-23 14:44:59.809403967 +0800 CST	deployed	myapp-0.1.0	v1
+myapp  	default  	1       	2025-10-23 14:44:59.809403967 +0800 CST	deployed	myapp-0.1.0	0.1.0
 ```
 
-### 5.升级安装
+### 4.升级安装
 
 ```shell
-~# sed -i 's@appVersion: "v1"@appVersion: "v2"@g' myapp/Chart.yaml
+~# helm upgrade --install  myapp myapp --set image.tag="v2"
 ```
 
 ### 6.回滚
@@ -189,8 +182,8 @@ myapp  	default  	1       	2025-10-23 14:44:59.809403967 +0800 CST	deployed	myap
 ```shell
 ~# helm history myapp
 REVISION	UPDATED                 	STATUS    	CHART      	APP VERSION	DESCRIPTION
-1       	Thu Oct 23 14:44:59 2025	superseded	myapp-0.1.0	v1         	Install complete
-2       	Thu Oct 23 14:49:46 2025	deployed  	myapp-0.1.0	v2         	Upgrade complete
+1       	Thu Oct 23 14:44:59 2025	superseded	myapp-0.1.0	0.1.0         	Install complete
+2       	Thu Oct 23 14:49:46 2025	deployed  	myapp-0.1.0	0.1.0         	Upgrade complete
 #
 ~# helm rollback myapp 1
 ```
