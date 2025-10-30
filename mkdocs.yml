@@ -187,12 +187,15 @@ nav:
             - v1.30.3: "k8s/kubeadm-v1.30.12.md"
     - Helm:
       - helm: "k8s/helm.md"
-    - Ingress:
-        - ingress-nginx: "k8s/ingress-nginx.md"
-    - Storage:
-        - nfs-subdir-external-provisioner: "k8s/nfs-subdir-external-provisioner.md"
     - Kustomize:
       - Kustomize: "k8s/kustomize.md"
+    - Ingress:
+        - ingress-nginx: "k8s/ingress-nginx.md"
+    - Kube-prometheus:
+        - kube-prometheus: "k8s/kube-prometheus.md"
+    - Storage:
+        - nfs-subdir-external-provisioner: "k8s/nfs-subdir-external-provisioner.md"
+
     - Private Registry:
         - habor:
             - v2.14.0: "k8s/harbor.md"
