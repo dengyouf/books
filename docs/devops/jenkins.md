@@ -467,3 +467,327 @@ pipeline {
 ```
 - 5.扫描结果
 ![img_3.png](pic/sonar-result.png)
+
+### Docker集成
+
+#### 1.docker开启远程访问
+
+```shell
+mkdir -p /etc/systemd/system/docker.service.d
+cat >  /etc/systemd/system/docker.service.d/override.conf << 'EOF'
+[Service]
+ExecStart=
+ExecStart=/usr/bin/dockerd -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375
+EOF
+systemctl daemon-reload && systemctl restart docker
+```
+
+#### 2.Jenkinsfile集成
+
+构建成功的前提是Docker构建节点能正常docker login 到 harbor仓库：
+
+- 主机名解析
+- 配置好私有证书
+
+```shell
+pipeline {
+    agent {
+        label 'build01'
+    }
+    tools {
+        jdk 'jdk17'
+        maven 'maven3'
+    }
+    environment {
+      BRANCH_NAME = "${env.BUILD_ID}"
+      PROJECT_KEY = "${env.JOB_NAME}"
+    }
+    stages {
+        stage('Checkout') {
+            ...
+        }
+        stage('Build') {
+            ...
+        }
+        stage("SonarQube Analysis") {
+            ...
+        }
+        stage("Build and Push Docker Image") {
+            // 生成Dockerfile
+            steps {
+                writeFile file: 'Dockerfile', text: '''\
+                    |FROM maven:3-openjdk-17
+                    |WORKDIR /apps
+                    |COPY target/helloword-0.0.1-SNAPSHOT.jar /apps/
+                    |EXPOSE 8080
+                    |CMD ["java", "-jar", "helloword-0.0.1-SNAPSHOT.jar"]'''.stripMargin()
+                script {
+                    def APP_NAME = env.JOB_NAME.split('_')[0]
+                    def HARBOR_URL = "harbor.devops.io"
+                    def PROJECT_NAME = "microservice"
+                    def TAG = env.BUILD_NUMBER
+                    def DOCKER_IMAGE = "${HARBOR_URL}/${PROJECT_NAME}/${APP_NAME}:${TAG}"
+                    withCredentials([usernamePassword(credentialsId: 'password-for-harbor-by-root', usernameVariable: 'HarborUsername', passwordVariable: 'HarborPassword')]) {
+                        sh """
+                            export DOCKER_HOST=tcp://192.168.1.130:2375
+                            docker login ${HARBOR_URL} -u ${HarborUsername} -p ${HarborPassword}
+                            docker build -t ${DOCKER_IMAGE} .
+                            docker push ${DOCKER_IMAGE}
+                        """
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+### Helm集成
+
+#### 1.安装Helm
+#### 2.制作Helm部署模版,并提交到Gitlab仓库
+
+```shell
+helm create springboot-app
+...
+```
+#### 3.生成Charts并提交到Harbor仓库
+
+```shell
+pipeline {
+    agent {
+        label 'build01'
+    }
+    tools {
+        jdk 'jdk17'
+        maven 'maven3'
+    }
+    environment {
+      BRANCH_NAME = "${env.BUILD_ID}"
+      PROJECT_KEY = "${env.JOB_NAME}"
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scmGit(
+                    branches: [[name: '*/main']],
+                    extensions: [],
+                    userRemoteConfigs: [
+                        [
+                            credentialsId: 'gitlab-password-for-root',
+                            url: 'http://192.168.1.132/devops/springboot-app.git'
+                        ]
+                    ]
+                )
+            }
+        }
+        stage('Build') {
+            steps {
+                sh"""
+                mvn package -DskipTests
+                """
+            }
+        }
+        /*stage("SonarQube Analysis") {
+          steps {
+              withSonarQubeEnv('SonarQube Server') {
+                sh """
+                    mvn sonar:sonar \
+                    -Dsonar.projectKey=${PROJECT_KEY} \
+                    -Dsonar.host.url=${SONAR_HOST_URL} \
+                    -Dsonar.token=${SONAR_AUTH_TOKEN} \
+                    -Dsonar.branch.name=${BRANCH_NAME}
+                """
+              }
+          }
+        }*/
+        stage("Build and Push Docker Image") {
+            steps {
+                writeFile file: 'Dockerfile', text: '''\
+                    |FROM eclipse-temurin:17-jdk-jammy
+                    |WORKDIR /apps
+                    |COPY target/helloword-0.0.1-SNAPSHOT.jar /apps/
+                    |EXPOSE 8080
+                    |CMD ["java", "-jar", "helloword-0.0.1-SNAPSHOT.jar"]'''.stripMargin()
+                script {
+                    def APP_NAME = env.JOB_NAME.split('_')[0]
+                    def HARBOR_URL = "harbor.devops.io"
+                    def PROJECT_NAME = "microservice"
+                    def TAG = env.BUILD_NUMBER
+                    env.TAG = env.BUILD_NUMBER
+                    def DOCKER_IMAGE = "${HARBOR_URL}/${PROJECT_NAME}/${APP_NAME}:${TAG}"
+
+                    withCredentials([usernamePassword(credentialsId: 'password-for-harbor-by-root', usernameVariable: 'HarborUsername', passwordVariable: 'HarborPassword')]) {
+                        sh """
+                            export DOCKER_HOST=tcp://192.168.1.130:2375
+                            docker login ${HARBOR_URL} -u ${HarborUsername} -p ${HarborPassword}
+                            docker build -t ${DOCKER_IMAGE} .
+                            docker push ${DOCKER_IMAGE}
+                        """
+                    }
+                }
+            }
+        }
+        stage('Generate Helm charts') {
+            steps {
+                checkout scmGit(
+                    branches: [[name: '*/main']],
+                    extensions: [],
+                    userRemoteConfigs: [
+                        [
+                            credentialsId: 'gitlab-password-for-root',
+                            url: 'http://192.168.1.132/gitops/helm-springboot-app.git'
+                        ]
+                    ]
+                )
+                sh """
+                sed -i "s@__TAG__@${TAG}@g" values.yaml
+                rm -rf target
+                helm package . --version 0.0.${TAG}
+                """
+            }
+        }
+        stage('Push Charts To Harbor') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'password-for-harbor-by-root', usernameVariable: 'HarborUsername', passwordVariable: 'HarborPassword')]) {
+                    sh """
+                        helm registry login --ca-file /etc/docker/certs.d/harbor.devops.io/ca.crt harbor.devops.io -u ${HarborUsername} -p ${HarborPassword}
+                        helm push --ca-file /etc/docker/certs.d/harbor.devops.io/ca.crt  springboot-myapp-0.0.${TAG}.tgz  oci://harbor.devops.io/charts
+                    """
+                }
+            }
+        }
+    }
+}
+```
+
+## 集成K8s
+
+### 1.安装Kubernetes CLI插件
+
+### 2.创建Secret类型认证
+![img.png](img.png)
+
+### 3.部署到K8s集群
+
+```shell
+pipeline {
+    agent {
+        label 'build01'
+    }
+    tools {
+        jdk 'jdk17'
+        maven 'maven3'
+    }
+    environment {
+      BRANCH_NAME = "${env.BUILD_ID}"
+      PROJECT_KEY = "${env.JOB_NAME}"
+    }
+    stages {
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
+        stage('Checkout') {
+            steps {
+                checkout scmGit(
+                    branches: [[name: '*/main']],
+                    extensions: [],
+                    userRemoteConfigs: [
+                        [
+                            credentialsId: 'gitlab-password-for-root',
+                            url: 'http://192.168.1.132/devops/springboot-app.git'
+                        ]
+                    ]
+                )
+            }
+        }
+        stage('Build') {
+            steps {
+                sh"""
+                mvn package -DskipTests
+                """
+            }
+        }
+        /*stage("SonarQube Analysis") {
+          steps {
+              withSonarQubeEnv('SonarQube Server') {
+                sh """
+                    mvn sonar:sonar \
+                    -Dsonar.projectKey=${PROJECT_KEY} \
+                    -Dsonar.host.url=${SONAR_HOST_URL} \
+                    -Dsonar.token=${SONAR_AUTH_TOKEN} \
+                    -Dsonar.branch.name=${BRANCH_NAME}
+                """
+              }
+          }
+        }*/
+        stage("Build and Push Docker Image") {
+            steps {
+                writeFile file: 'Dockerfile', text: '''\
+                    |FROM eclipse-temurin:17-jdk-jammy
+                    |WORKDIR /apps
+                    |COPY target/helloword-0.0.1-SNAPSHOT.jar /apps/
+                    |EXPOSE 8080
+                    |CMD ["java", "-jar", "/apps/helloword-0.0.1-SNAPSHOT.jar"]'''.stripMargin()
+                script {
+                    def APP_NAME = env.JOB_NAME.split('_')[0]
+                    def HARBOR_URL = "harbor.devops.io"
+                    def PROJECT_NAME = "microservice"
+                    def TAG = env.BUILD_NUMBER
+                    env.TAG = env.BUILD_NUMBER
+                    def DOCKER_IMAGE = "${HARBOR_URL}/${PROJECT_NAME}/${APP_NAME}:${TAG}"
+
+                    withCredentials([usernamePassword(credentialsId: 'password-for-harbor-by-root', usernameVariable: 'HarborUsername', passwordVariable: 'HarborPassword')]) {
+                        sh """
+                            export DOCKER_HOST=tcp://192.168.1.130:2375
+                            docker login ${HARBOR_URL} -u ${HarborUsername} -p ${HarborPassword}
+                            docker build -t ${DOCKER_IMAGE} .
+                            docker push ${DOCKER_IMAGE}
+                        """
+                    }
+                }
+            }
+        }
+        stage('Generate Helm charts') {
+            steps {
+                checkout scmGit(
+                    branches: [[name: '*/main']],
+                    extensions: [],
+                    userRemoteConfigs: [
+                        [
+                            credentialsId: 'gitlab-password-for-root',
+                            url: 'http://192.168.1.132/gitops/helm-springboot-app.git'
+                        ]
+                    ]
+                )
+                sh """
+                sed -i "s@__TAG__@${TAG}@g" values.yaml
+                rm -rf target
+                helm package . --version 0.0.${TAG}
+                """
+            }
+        }
+        stage('Push Charts To Harbor') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'password-for-harbor-by-root', usernameVariable: 'HarborUsername', passwordVariable: 'HarborPassword')]) {
+                    sh """
+                            helm registry login --ca-file /etc/docker/certs.d/harbor.devops.io/ca.crt harbor.devops.io -u ${HarborUsername} -p ${HarborPassword}
+                            helm push --ca-file /etc/docker/certs.d/harbor.devops.io/ca.crt  springboot-myapp-0.0.${TAG}.tgz  oci://harbor.devops.io/charts
+                    """
+                }
+            }
+        }
+        stage('Deploy Application to K8s') {
+            steps {
+                withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'kubeconfig-k8s-dev', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
+                   sh"""
+                   helm upgrade --install springboot-app oci://harbor.devops.io/charts/springboot-myapp --version 0.0.${TAG} --ca-file /etc/docker/certs.d/harbor.devops.io/ca.crt
+                   """
+                }
+            }
+        }
+    }
+}
+```
