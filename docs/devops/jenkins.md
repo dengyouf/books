@@ -661,14 +661,14 @@ pipeline {
 }
 ```
 
-## 集成K8s
+## Kubernetes集成
 
-### 1.安装Kubernetes CLI插件
+#### 1.安装Kubernetes CLI插件
 
-### 2.创建Secret类型认证
+#### 2.创建Secret类型认证
 ![img.png](img.png)
 
-### 3.部署到K8s集群
+#### 3.部署到K8s集群
 
 ```shell
 pipeline {
