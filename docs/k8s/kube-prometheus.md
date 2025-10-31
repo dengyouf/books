@@ -165,7 +165,7 @@ prometheus-operator     ClusterIP   None            <none>        8443/TCP      
 
 ### 6.完善监控
 
-#### 6.1.添加kube-scheduler自动发现
+#### 6.1.添加kube-scheduler监控
 
 - 查看 kube-scheduler 的Service monitoring定义
 
@@ -264,7 +264,7 @@ kube-scheduler   ClusterIP   10.98.202.176   <none>        10259/TCP   53s
 ![img.png](pic/scheduler-p.png)
 
 
-#### 6.2.添加kube-controller自动发现
+#### 6.2.添加kube-controller监控
 
 - 查看 kube-controller 的Service monitoring定义
 
@@ -331,6 +331,92 @@ kube-controller-manager   ClusterIP   10.98.144.138   <none>        10257/TCP   
 
 - 验证
 ![img.png](pic/controller-manager.png)
+
+#### 6.3.添加etcd监控
+
+- 修改 Etcd 监听端口
+
+```shell
+~# vim /etc/kubernetes/manifests/etcd.yaml
+  containers:
+  - command:
+    - etcd
+    - --advertise-client-urls=https://192.168.1.111:2379
+    - --cert-file=/etc/kubernetes/pki/etcd/server.crt
+    ...
+    - --listen-metrics-urls=http://0.0.0.0:2381
+
+~# ss -tnlp|grep 2381
+LISTEN 0      32768              *:2381             *:*    users:(("etcd",pid=440698,fd=14))
+```
+- 创建 Etcd ServiceMonitor对象
+
+```shell
+cat > exts/kube-etcd-servicemonitor.yaml << 'EOF'
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: etcd-k8s
+  namespace: monitoring
+  labels:
+    k8s-app: etcd-k8s
+spec:
+  jobLabel: k8s-app
+  endpoints:
+    - port: port
+      interval: 15s
+  selector:
+    matchLabels:
+      k8s-app: etcd
+  namespaceSelector:
+    matchNames:
+      - kube-system
+EOF
+~/kube-prometheus# kubectl  apply -f exts/kube-etcd-servicemonitor.yaml
+```
+
+- 创建Service对象满足 ServiceMonitor 关联条件
+
+```shell
+~/kube-prometheus# cat > exts/kube-etcd-service.yaml << 'EOF'
+apiVersion: v1
+kind: Service
+metadata:
+  name: etcd-k8s
+  namespace: kube-system
+  labels:
+    k8s-app: etcd
+spec:
+  type: ClusterIP
+  clusterIP: None
+  ports:
+    - name: port
+      port: 2381
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: etcd-k8s
+  namespace: kube-system
+  labels:
+    k8s-app: etcd
+subsets:
+  - addresses:
+      - ip: 192.168.1.111 # 指定etcd节点地址，如果是集群则继续向下添加
+        nodeName: etcd-k8s-master01
+    ports:
+      - name: port
+        port: 2381
+EOF
+~/kube-prometheus# kubectl apply -f exts/kube-etcd-service.yaml
+~/kube-prometheus# kubectl get svc -n kube-system -l k8s-app=etcd
+NAME       TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE
+etcd-k8s   ClusterIP   None         <none>        2381/TCP   13s
+```
+
+![img.png](img.png)
+
+
 
 ### 6.卸载
 

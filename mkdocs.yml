@@ -191,6 +191,8 @@ nav:
       - Kustomize: "k8s/kustomize.md"
     - Ingress:
         - ingress-nginx: "k8s/ingress-nginx.md"
+    - Jenkins:
+        - jenkins: "k8s/jenkins.md"
     - Kube-prometheus:
         - kube-prometheus: "k8s/kube-prometheus.md"
     - Storage:

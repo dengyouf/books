@@ -682,6 +682,11 @@ pipeline {
     environment {
       BRANCH_NAME = "${env.BUILD_ID}"
       PROJECT_KEY = "${env.JOB_NAME}"
+      APP_NAME = "${PROJECT_KEY}"
+      HARBOR_URL = "harbor.devops.io"
+      PROJECT_NAME = "microservice"
+      TAG = "${env.BUILD_ID}"
+      DOCKER_IMAGE = "${HARBOR_URL}/${PROJECT_NAME}/${APP_NAME}:${TAG}"
     }
     stages {
         stage('Clean Workspace') {
@@ -732,13 +737,14 @@ pipeline {
                     |EXPOSE 8080
                     |CMD ["java", "-jar", "/apps/helloword-0.0.1-SNAPSHOT.jar"]'''.stripMargin()
                 script {
+                    /*
                     def APP_NAME = env.JOB_NAME.split('_')[0]
                     def HARBOR_URL = "harbor.devops.io"
                     def PROJECT_NAME = "microservice"
                     def TAG = env.BUILD_NUMBER
                     env.TAG = env.BUILD_NUMBER
                     def DOCKER_IMAGE = "${HARBOR_URL}/${PROJECT_NAME}/${APP_NAME}:${TAG}"
-
+                    */
                     withCredentials([usernamePassword(credentialsId: 'password-for-harbor-by-root', usernameVariable: 'HarborUsername', passwordVariable: 'HarborPassword')]) {
                         sh """
                             export DOCKER_HOST=tcp://192.168.1.130:2375
@@ -783,7 +789,7 @@ pipeline {
             steps {
                 withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'kubeconfig-k8s-dev', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
                    sh"""
-                   helm upgrade --install springboot-app oci://harbor.devops.io/charts/springboot-myapp --version 0.0.${TAG} --ca-file /etc/docker/certs.d/harbor.devops.io/ca.crt
+                   helm upgrade --install ${APP_NAME} oci://harbor.devops.io/charts/springboot-myapp --version 0.0.${TAG} --ca-file /etc/docker/certs.d/harbor.devops.io/ca.crt
                    """
                 }
             }
@@ -791,3 +797,9 @@ pipeline {
     }
 }
 ```
+
+![img_1.png](img_1.png)
+
+
+
+
