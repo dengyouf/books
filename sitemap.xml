@@ -2,106 +2,110 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://dengyouf.github.io/books/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/blog/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/devops/gitlab/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/devops/jenkins/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/devops/nexus/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/devops/sonar/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/k8s/harbor/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/k8s/helm/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/k8s/ingress-nginx/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://dengyouf.github.io/books/k8s/jenkins/</loc>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/k8s/kube-prometheus/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/k8s/kubeadm-v1.30.12/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/k8s/kustomize/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/k8s/nfs-subdir-external-provisioner/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/monitoring/alertmanager/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/monitoring/blackbox-exporter/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/monitoring/grafana/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/monitoring/node-exporter/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/monitoring/prometheus/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/storage/auth/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/storage/ceph/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/storage/cephfs/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/storage/cluster/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/storage/mon/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/storage/osd/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/storage/rbd/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
     <url>
          <loc>https://dengyouf.github.io/books/storage/rgw/</loc>
-         <lastmod>2025-10-30</lastmod>
+         <lastmod>2025-10-31</lastmod>
     </url>
 </urlset>
