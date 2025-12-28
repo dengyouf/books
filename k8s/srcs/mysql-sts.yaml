@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysql
+  namespace: wp
+  labels:
+    app: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+#      initContainers:
+#      - name: init-service
+#        # image: busybox
+#        image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/ranchercharts/busybox:1.29.3
+#        command: ['sh', '-c', 'until nslookup db; do echo "waiting for mysql";sleep 2;done']
+      containers:
+      - name: mysql
+#         image: mysql:5.7
+        image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/mysql:5.7.34
+        args:
+          - --default-authentication-plugin=mysql_native_password
+          - --character-set-server=utf8mb4
+          - --collation-server=utf8mb4_unicode_ci
+        ports:
+        - name: db
+          protocol: TCP
+          containerPort: 3306
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: rootPassw0rd
+          - name: MYSQL_DATABASE
+            value: wordpress
+          - name: MYSQL_USER
+            value: wp
+          - name: MYSQL_PASSWORD
+            value: wpPassw0rd
+
