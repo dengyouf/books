@@ -155,6 +155,13 @@ not_in_nav: |
 # Page tree
 nav:
   # - 主页: index.md
+  - Web Service:
+      - Nginx: "web/nginx.md"
+  - ElkStack:
+      - Elasticsearch:
+        - v8.19.9: "elkstack/es-https-v8.19.9.md"
+      - Kibana:
+          - v8.19.9: "elkstack/kibana-https-v8.19.9.md"
   - Storage:
     - Ceph:
         - Installation:
@@ -185,6 +192,8 @@ nav:
     - Installation:
         - kubeadm:
             - v1.30.3: "k8s/kubeadm-v1.30.12.md"
+        - sealos:
+            - v1.28.7: "k8s/sealos-v1.28.7.md"
     - Helm:
       - helm: "k8s/helm.md"
     - Kustomize:
@@ -203,6 +212,7 @@ nav:
     - Private Registry:
         - habor:
             - v2.14.0: "k8s/harbor.md"
+
 
 
 

@@ -1,0 +1,18 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress
+  namespace: wp
+  labels:
+    app: wordpress
+spec:
+  type: NodePort
+  selector:
+    app: wordpress
+  ports:
+  - name: http-80
+    protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 30080

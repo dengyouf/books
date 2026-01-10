@@ -93,9 +93,7 @@ EOF
 ### 3.关闭防火墙和selinux(Ubuntu不用管SELinux)
 
 ```shell
-sed -i 's/.*swap.*/#&/' /etc/fstab
-swapoff -a && sysctl -w vm.swappiness=0
-systemctl  mask swap.target
+ufw disable
 ```
 
 ### 4.关闭swap分区
@@ -442,6 +440,7 @@ curl https://raw.githubusercontent.com/projectcalico/calico/v3.29.6/manifests/ca
 ```
 
 #### 4.2.配置calico
+
 ```shell
 # 配置Pod网络
 sed -i 's@# - name: CALICO_IPV4POOL_CIDR@- name: CALICO_IPV4POOL_CIDR@g' calico.yaml

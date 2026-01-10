@@ -1,0 +1,10 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: wordpress-pdb
+  namespace: wp
+spec:
+  maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: wordpress

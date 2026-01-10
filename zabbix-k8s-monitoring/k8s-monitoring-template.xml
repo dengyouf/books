@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>6.0</version>
+    <date>2024-01-01T00:00:00Z</date>
+    <groups>
+        <group>
+            <name>Templates/Operating systems</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Kubernetes API Server Monitoring</template>
+            <name>Kubernetes API Server Monitoring</name>
+            <description>监控 Kubernetes 1.31.6 集群的模板，通过 API Server 进行监控</description>
+            <groups>
+                <group>
+                    <name>Templates/Operating systems</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>Kubernetes Cluster</name>
+                </application>
+                <application>
+                    <name>Kubernetes Nodes</name>
+                </application>
+                <application>
+                    <name>Kubernetes Pods</name>
+                </application>
+                <application>
+                    <name>Kubernetes Workloads</name>
+                </application>
+                <application>
+                    <name>Kubernetes API Server</name>
+                </application>
+            </applications>
+            <items>
+                <!-- API Server 版本信息 -->
+                <item>
+                    <name>Kubernetes API Server Version</name>
+                    <type>HTTP_AGENT</type>
+                    <key>k8s.api.version</key>
+                    <delay>300s</delay>
+                    <history>7d</history>
+                    <trends>365d</trends>
+                    <applications>
+                        <application>
+                            <name>Kubernetes API Server</name>
+                        </application>
+                    </applications>
+                    <value_type>TEXT</value_type>
+                    <url>{$K8S.API.SERVER}/version</url>
+                    <request_method>GET</request_method>
+                    <headers>
+                        <header>
+                            <name>Authorization</name>
+                            <value>Bearer {$K8S.API.TOKEN}</value>
+                        </header>
+                    </headers>
+                    <timeout>10s</timeout>
+                    <preprocessing>
+                        <step>
+                            <type>JSONPATH</type>
+                            <params>$.gitVersion</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                
+                <!-- 集群节点总数 -->
+                <item>
+                    <name>Kubernetes Nodes Total</name>
+                    <type>HTTP_AGENT</type>
+                    <key>k8s.nodes.total</key>
+                    <delay>60s</delay>
+                    <history>7d</history>
+                    <trends>365d</trends>
+                    <applications>
+                        <application>
+                            <name>Kubernetes Nodes</name>
+                        </application>
+                    </applications>
+                    <value_type>UINT64</value_type>
+                    <url>{$K8S.API.SERVER}/api/v1/nodes</url>
+                    <request_method>GET</request_method>
+                    <headers>
+                        <header>
+                            <name>Authorization</name>
+                            <value>Bearer {$K8S.API.TOKEN}</value>
+                        </header>
+                    </headers>
+                    <timeout>10s</timeout>
+                    <preprocessing>
+                        <step>
+                            <type>JSONPATH</type>
+                            <params>$.items.length()</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                
+                <!-- 就绪节点数 -->
+                <item>
+                    <name>Kubernetes Nodes Ready</name>
+                    <type>HTTP_AGENT</type>
+                    <key>k8s.nodes.ready</key>
+                    <delay>60s</delay>
+                    <history>7d</history>
+                    <trends>365d</trends>
+                    <applications>
+                        <application>
+                            <name>Kubernetes Nodes</name>
+                        </application>
+                    </applications>
+                    <value_type>UINT64</value_type>
+                    <url>{$K8S.API.SERVER}/api/v1/nodes</url>
+                    <request_method>GET</request_method>
+                    <headers>
+                        <header>
+                            <name>Authorization</name>
+                            <value>Bearer {$K8S.API.TOKEN}</value>
+                        </header>
+                    </headers>
+                    <timeout>10s</timeout>
+                    <preprocessing>
+                        <step>
+                            <type>JAVASCRIPT</type>
+                            <params>var nodes = JSON.parse(value).items;
+var ready = 0;
+for (var i = 0; i &lt; nodes.length; i++) {
+    var conditions = nodes[i].status.conditions;
+    for (var j = 0; j &lt; conditions.length; j++) {
+        if (conditions[j].type === 'Ready' &amp;&amp; conditions[j].status === 'True') {
+            ready++;
+            break;
+        }
+    }
+}
+return ready;</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                
+                <!-- Pod 总数 -->
+                <item>
+                    <name>Kubernetes Pods Total</name>
+                    <type>HTTP_AGENT</type>
+                    <key>k8s.pods.total</key>
+                    <delay>60s</delay>
+                    <history>7d</history>
+                    <trends>365d</trends>
+                    <applications>
+                        <application>
+                            <name>Kubernetes Pods</name>
+                        </application>
+                    </applications>
+                    <value_type>UINT64</value_type>
+                    <url>{$K8S.API.SERVER}/api/v1/pods</url>
+                    <request_method>GET</request_method>
+                    <headers>
+                        <header>
+                            <name>Authorization</name>
+                            <value>Bearer {$K8S.API.TOKEN}</value>
+                        </header>
+                    </headers>
+                    <timeout>10s</timeout>
+                    <preprocessing>
+                        <step>
+                            <type>JSONPATH</type>
+                            <params>$.items.length()</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                
+                <!-- 运行中的 Pod 数 -->
+                <item>
+                    <name>Kubernetes Pods Running</name>
+                    <type>HTTP_AGENT</type>
+                    <key>k8s.pods.running</key>
+                    <delay>60s</delay>
+                    <history>7d</history>
+                    <trends>365d</trends>
+                    <applications>
+                        <application>
+                            <name>Kubernetes Pods</name>
+                        </application>
+                    </applications>
+                    <value_type>UINT64</value_type>
+                    <url>{$K8S.API.SERVER}/api/v1/pods?fieldSelector=status.phase=Running</url>
+                    <request_method>GET</request_method>
+                    <headers>
+                        <header>
+                            <name>Authorization</name>
+                            <value>Bearer {$K8S.API.TOKEN}</value>
+                        </header>
+                    </headers>
+                    <timeout>10s</timeout>
+                    <preprocessing>
+                        <step>
+                            <type>JSONPATH</type>
+                            <params>$.items.length()</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                
+                <!-- 失败的 Pod 数 -->
+                <item>
+                    <name>Kubernetes Pods Failed</name>
+                    <type>HTTP_AGENT</type>
+                    <key>k8s.pods.failed</key>
+                    <delay>60s</delay>
+                    <history>7d</history>
+                    <trends>365d</trends>
+                    <applications>
+                        <application>
+                            <name>Kubernetes Pods</name>
+                        </application>
+                    </applications>
+                    <value_type>UINT64</value_type>
+                    <url>{$K8S.API.SERVER}/api/v1/pods?fieldSelector=status.phase=Failed</url>
+                    <request_method>GET</request_method>
+                    <headers>
+                        <header>
+                            <name>Authorization</name>
+                            <value>Bearer {$K8S.API.TOKEN}</value>
+                        </header>
+                    </headers>
+                    <timeout>10s</timeout>
+                    <preprocessing>
+                        <step>
+                            <type>JSONPATH</type>
+                            <params>$.items.length()</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                
+                <!-- Deployment 总数 -->
+                <item>
+                    <name>Kubernetes Deployments Total</name>
+                    <type>HTTP_AGENT</type>
+                    <key>k8s.deployments.total</key>
+                    <delay>300s</delay>
+                    <history>7d</history>
+                    <trends>365d</trends>
+                    <applications>
+                        <application>
+                            <name>Kubernetes Workloads</name>
+                        </application>
+                    </applications>
+                    <value_type>UINT64</value_type>
+                    <url>{$K8S.API.SERVER}/apis/apps/v1/deployments</url>
+                    <request_method>GET</request_method>
+                    <headers>
+                        <header>
+                            <name>Authorization</name>
+                            <value>Bearer {$K8S.API.TOKEN}</value>
+                        </header>
+                    </headers>
+                    <timeout>10s</timeout>
+                    <preprocessing>
+                        <step>
+                            <type>JSONPATH</type>
+                            <params>$.items.length()</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                
+                <!-- API Server 响应时间 -->
+                <item>
+                    <name>Kubernetes API Server Response Time</name>
+                    <type>HTTP_AGENT</type>
+                    <key>k8s.api.response_time</key>
+                    <delay>30s</delay>
+                    <history>7d</history>
+                    <trends>365d</trends>
+                    <applications>
+                        <application>
+                            <name>Kubernetes API Server</name>
+                        </application>
+                    </applications>
+                    <value_type>FLOAT</value_type>
+                    <units>s</units>
+                    <url>{$K8S.API.SERVER}/version</url>
+                    <request_method>GET</request_method>
+                    <headers>
+                        <header>
+                            <name>Authorization</name>
+                            <value>Bearer {$K8S.API.TOKEN}</value>
+                        </header>
+                    </headers>
+                    <timeout>10s</timeout>
+                    <status_codes>200</status_codes>
+                </item>
+                
+                <!-- API Server 可用性 -->
+                <item>
+                    <name>Kubernetes API Server Availability</name>
+                    <type>HTTP_AGENT</type>
+                    <key>k8s.api.availability</key>
+                    <delay>30s</delay>
+                    <history>7d</history>
+                    <trends>365d</trends>
+                    <applications>
+                        <application>
+                            <name>Kubernetes API Server</name>
+                        </application>
+                    </applications>
+                    <value_type>UINT64</value_type>
+                    <url>{$K8S.API.SERVER}/version</url>
+                    <request_method>GET</request_method>
+                    <headers>
+                        <header>
+                            <name>Authorization</name>
+                            <value>Bearer {$K8S.API.TOKEN}</value>
+                        </header>
+                    </headers>
+                    <timeout>10s</timeout>
+                    <status_codes>200</status_codes>
+                    <preprocessing>
+                        <step>
+                            <type>REGEX</type>
+                            <params>^.*$</params>
+                            <params2>1</params2>
+                        </step>
+                    </preprocessing>
+                </item>
+            </items>
+            <triggers>
+                <!-- 节点不可用告警 -->
+                <trigger>
+                    <expression>{Kubernetes API Server Monitoring:k8s.nodes.ready.last()}&lt;{Kubernetes API Server Monitoring:k8s.nodes.total.last()}</expression>
+                    <name>Kubernetes 节点不可用</name>
+                    <priority>WARNING</priority>
+                    <description>有节点处于非就绪状态</description>
+                </trigger>
+                
+                <!-- Pod 失败告警 -->
+                <trigger>
+                    <expression>{Kubernetes API Server Monitoring:k8s.pods.failed.last()}&gt;0</expression>
+                    <name>Kubernetes Pod 失败</name>
+                    <priority>HIGH</priority>
+                    <description>检测到失败的 Pod</description>
+                </trigger>
+                
+                <!-- API Server 不可用告警 -->
+                <trigger>
+                    <expression>{Kubernetes API Server Monitoring:k8s.api.availability.last()}=0</expression>
+                    <name>Kubernetes API Server 不可用</name>
+                    <priority>DISASTER</priority>
+                    <description>Kubernetes API Server 无法访问</description>
+                </trigger>
+                
+                <!-- API Server 响应时间告警 -->
+                <trigger>
+                    <expression>{Kubernetes API Server Monitoring:k8s.api.response_time.last()}&gt;5</expression>
+                    <name>Kubernetes API Server 响应时间过长</name>
+                    <priority>WARNING</priority>
+                    <description>API Server 响应时间超过 5 秒</description>
+                </trigger>
+            </triggers>
+            <graphs>
+                <graph>
+                    <name>Kubernetes Nodes Status</name>
+                    <width>900</width>
+                    <height>200</height>
+                    <graph_items>
+                        <graph_item>
+                            <sortorder>0</sortorder>
+                            <item>
+                                <host>Kubernetes API Server Monitoring</host>
+                                <key>k8s.nodes.total</key>
+                            </item>
+                            <draw_type>0</draw_type>
+                            <color>00CC00</color>
+                        </graph_item>
+                        <graph_item>
+                            <sortorder>1</sortorder>
+                            <item>
+                                <host>Kubernetes API Server Monitoring</host>
+                                <key>k8s.nodes.ready</key>
+                            </item>
+                            <draw_type>0</draw_type>
+                            <color>0099FF</color>
+                        </graph_item>
+                    </graph_items>
+                </graph>
+                <graph>
+                    <name>Kubernetes Pods Status</name>
+                    <width>900</width>
+                    <height>200</height>
+                    <graph_items>
+                        <graph_item>
+                            <sortorder>0</sortorder>
+                            <item>
+                                <host>Kubernetes API Server Monitoring</host>
+                                <key>k8s.pods.total</key>
+                            </item>
+                            <draw_type>0</draw_type>
+                            <color>00CC00</color>
+                        </graph_item>
+                        <graph_item>
+                            <sortorder>1</sortorder>
+                            <item>
+                                <host>Kubernetes API Server Monitoring</host>
+                                <key>k8s.pods.running</key>
+                            </item>
+                            <draw_type>0</draw_type>
+                            <color>0099FF</color>
+                        </graph_item>
+                        <graph_item>
+                            <sortorder>2</sortorder>
+                            <item>
+                                <host>Kubernetes API Server Monitoring</host>
+                                <key>k8s.pods.failed</key>
+                            </item>
+                            <draw_type>0</draw_type>
+                            <color>CC0000</color>
+                        </graph_item>
+                    </graph_items>
+                </graph>
+            </graphs>
+            <macros>
+                <macro>
+                    <macro>{$K8S.API.SERVER}</macro>
+                    <value>https://kubernetes.default.svc:443</value>
+                    <description>Kubernetes API Server 地址</description>
+                </macro>
+                <macro>
+                    <macro>{$K8S.API.TOKEN}</macro>
+                    <value></value>
+                    <description>Kubernetes API Server Token</description>
+                </macro>
+            </macros>
+        </template>
+    </templates>
+</zabbix_export>
+
