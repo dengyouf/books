@@ -206,12 +206,15 @@ nav:
         - jenkins: "k8s/jenkins.md"
     - Kube-prometheus:
         - kube-prometheus: "k8s/kube-prometheus.md"
+    - Lock-Stack:
+        - loki-stack: "logging/loki.md"
     - Storage:
         - nfs-subdir-external-provisioner: "k8s/nfs-subdir-external-provisioner.md"
 
     - Private Registry:
         - habor:
             - v2.14.0: "k8s/harbor.md"
+        - docker-registry-ui: "k8s/docker-registry-ui.md"
 
 
 

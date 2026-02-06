@@ -17,3 +17,13 @@ colorama~=0.4
 paginate~=0.5
 backrefs~=5.7.post1
 requests~=2.26
+
+
+
+#
+mkdocs-minify-plugin
+mkdocs-material
+mkdocs-material-extensions
+
+
+# mkdocs serve --dev-addr 127.0.0.1:8000 --watch docs --watch mkdocs.yml  --livereload
