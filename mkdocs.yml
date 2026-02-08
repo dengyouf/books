@@ -202,8 +202,11 @@ nav:
         - ingress-nginx: "k8s/ingress-nginx.md"
     - MetalLB:
         - metallb: "k8s/metallb.md"
-    - Jenkins:
+    - DevOps:
         - jenkins: "k8s/jenkins.md"
+    - GitOps:
+        - argocd: "k8s/argocd.md"
+        - argocd image updater: "k8s/argocdimageupdater.md"
     - Kube-prometheus:
         - kube-prometheus: "k8s/kube-prometheus.md"
     - Lock-Stack:
