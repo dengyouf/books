@@ -220,6 +220,14 @@ docker login harbor.devops.io -u admin -p Harbor12345
 docker push harbor.devops.io/library/myapp:v1
 ```
 
+> 如果失效，把 Harbor CA 证书加入系统信任
+
+```
+cp /data/harbor/ssl/ca.crt /usr/local/share/ca-certificates/harbor.devops.io.crt
+update-ca-certificates
+systemctl restart docker
+```
+
 ## [配置containerd使用](https://github.com/containerd/containerd/blob/main/docs/hosts.md)
 
 ```shell
