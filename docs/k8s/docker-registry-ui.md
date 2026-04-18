@@ -73,7 +73,7 @@ http {
         add_header 'Access-Control-Max-Age' 1728000 always;
         return 204;
       }
-
+      client_max_body_size 0;
       proxy_pass http://registry:5000;
       proxy_set_header Host $host;
       proxy_set_header X-Real-IP $remote_addr;
@@ -130,17 +130,17 @@ cd docker-registry-ui/examples/issue-20/
 ```shell
 cat /etc/docker/daemon.json
 {
-    "insecure-registries": ["172.16.30.7:5000"]
+    "insecure-registries": ["172.16.30.7:5000", "172.16.30.7"]
 }
 
 systemctl restart docker
 
-docker login -u registry -p ui 172.16.30.7:5000
+docker login -u registry -p ui 172.16.30.7
 WARNING! Using --password via the CLI is insecure. Use --password-stdin.
 Login Succeeded
 
-docker tag jenkins/jenkins:lts 172.16.30.7:5000/jenkins/jenkins:lts
-docker push 172.16.30.7:5000/jenkins/jenkins:lts
+docker tag jenkins/jenkins:lts 172.16.30.7/jenkins/jenkins:lts
+docker push 172.16.30.7/jenkins/jenkins:lts
 ```
 
 
@@ -152,6 +152,16 @@ mkdir -pv /etc/containerd/certs.d/172.16.30.7:5000/
 cat > /etc/containerd/certs.d/172.16.30.7\:5000/hosts.toml  << 'EOF'
 server = "http://172.16.30.7:5000"
 [host."http://172.16.30.7:5000"]
+  capabilities = ["pull", "resolve", "push"]
+[host.auth]
+username = "registry"
+password = "ui"
+EOF
+
+mkdir -pv /etc/containerd/certs.d/172.16.30.7/
+cat > /etc/containerd/certs.d/172.16.30.7/hosts.toml  << 'EOF'
+server = "http://172.16.30.7"
+[host."http://172.16.30.7"]
   capabilities = ["pull", "resolve", "push"]
 [host.auth]
 username = "registry"
