@@ -155,8 +155,8 @@ not_in_nav: |
 # Page tree
 nav:
   # - 主页: index.md
-  - Web Service:
-      - Nginx: "web/nginx.md"
+  - Base Service:
+      - Redis: "baseservice/redis.md"
   - ElkStack:
       - Elasticsearch:
         - v8.19.9: "elkstack/es-https-v8.19.9.md"
