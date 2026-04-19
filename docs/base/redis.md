@@ -31,7 +31,7 @@ cd redis-7.2.9
 make USE_SYSTEMD=yes BUILD_TLS=yes MALLOC=jemalloc -j$(nproc)
 make install PREFIX=/usr/local/redis
 ```
-## 单机部署
+## 2. 单机部署
 
 ### 2.1 目录结构
 
