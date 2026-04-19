@@ -148,7 +148,9 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js
+  - https://fastly.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js
 not_in_nav: |
   /tutorials/**/*.md
 
@@ -156,7 +158,7 @@ not_in_nav: |
 nav:
   # - 主页: index.md
   - Base Service:
-      - Redis: "baseservice/redis.md"
+      - redis: "base/redis.md"
   - ElkStack:
       - Elasticsearch:
         - v8.19.9: "elkstack/es-https-v8.19.9.md"
