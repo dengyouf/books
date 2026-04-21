@@ -1,4 +1,4 @@
-# Redis 高可用集群完整部署指南
+# Redis 完整部署指南
 
 > 基于 Redis 7.2.9，涵盖单机部署、多实例、主从复制、哨兵模式的完整实践
 
@@ -229,7 +229,7 @@ OK
 replicaof 192.168.122.16 6379
 masterauth MyPassw0rd
 ```
-### 验证主从状态
+### 4.3 验证主从状态
 
 ```
 /data/apps/redis_6379/bin/redis-cli -h 192.168.122.16 -p 6379 -a MyPassw0rd
