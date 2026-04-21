@@ -57,7 +57,7 @@ cat >> /etc/security/limits.conf << 'EOF'
 *                soft    msgqueue        1000000
 *                hard    msgqueuq        1000000
 EOF
-
+```
 
 ## 二、安装 Elasticsearch
 
