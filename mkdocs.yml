@@ -163,10 +163,10 @@ nav:
   - ElkStack:
       - Elasticsearch:
         - v8.19.9: "elkstack/es-https-v8.19.9.md"
-        - v9.1.5: "elkstack/es-http-v9.15.md"
+        - v9.1.5: "elkstack/es-http-v9.1.5.md"
+        - v9.2.3: "elkstack/es-http-v9.2.3.md"
       - Kibana:
           - v8.19.9: "elkstack/kibana-https-v8.19.9.md"
-  - Monitor
   - Storage:
     - Ceph:
         - Installation:
