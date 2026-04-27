@@ -167,6 +167,10 @@ nav:
         - v9.2.3: "elkstack/es-http-v9.2.3.md"
       - Kibana:
           - v8.19.9: "elkstack/kibana-https-v8.19.9.md"
+      - Beats:
+          - HeartBeat: "elkstack/heartbeat.md"
+          - MetricBeat: "elkstack/metricbeat.md"
+          - FileBeat: "elkstack/filebeat.md"
   - Storage:
     - Ceph:
         - Installation:
