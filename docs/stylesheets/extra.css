@@ -1,0 +1,109 @@
+:root {
+  --md-text-font: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+  --md-code-font: "JetBrains Mono", "Fira Code", monospace;
+
+  /* 自定义颜色变量 */
+  --heading-color-1: #0f172a;
+  --heading-color-2: #1e293b;
+  --heading-color-3: #334155;
+  --heading-color-4: #475569;
+}
+
+/* ===== 全局基础字体：16px 是浏览器默认值，阅读最舒适 ===== */
+html {
+  font-size: 16px;
+}
+
+/* ===== 标题层级 ===== */
+/* 采用 1.25 倍音阶，视觉层次清晰且不夸张 */
+
+.md-typeset h1 {
+  font-size: 2.25em;          /* ~36px */
+  font-weight: 800;
+  color: var(--heading-color-1);
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  border-bottom: none;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+}
+
+.md-typeset h2 {
+  font-size: 1.75em;          /* ~28px */
+  font-weight: 700;
+  color: var(--heading-color-2);
+  border-left: 5px solid #3b82f6;
+  padding-left: 0.8em;
+  margin-top: 1.4em;
+  margin-bottom: 0.5em;
+}
+
+.md-typeset h3 {
+  font-size: 1.4em;           /* ~22.4px */
+  font-weight: 600;
+  color: var(--heading-color-3);
+  margin-top: 1.2em;
+  margin-bottom: 0.4em;
+}
+
+.md-typeset h4 {
+  font-size: 1.15em;          /* ~18.4px */
+  font-weight: 600;
+  color: var(--heading-color-4);
+  margin-top: 1em;
+  margin-bottom: 0.3em;
+}
+
+.md-typeset h5 {
+  font-size: 1em;             /* 16px，与正文一致，靠字重区分 */
+  font-weight: 600;
+  color: #64748b;
+  margin-top: 0.8em;
+  margin-bottom: 0.2em;
+}
+
+.md-typeset h6 {
+  font-size: 0.9em;           /* ~14.4px */
+  font-weight: 500;
+  color: #94a3b8;
+  font-style: italic;
+  margin-top: 0.6em;
+  margin-bottom: 0.2em;
+}
+
+/* ===== 正文段落 ===== */
+.md-typeset p {
+  font-size: 1em;             /* 16px */
+  line-height: 1.75;          /* 略增行高，中文阅读更舒适 */
+}
+
+/* ===== 列表 ===== */
+.md-typeset ul,
+.md-typeset ol {
+  font-size: 1em;
+  line-height: 1.75;
+}
+
+/* ===== 代码 ===== */
+.md-typeset code {
+  font-size: 0.9em;           /* 行内代码 ~14.4px，比正文略小 */
+}
+
+.md-typeset pre > code {
+  font-size: 0.875em;         /* 代码块 ~14px，等宽字体下更清晰 */
+  line-height: 1.6;
+}
+
+/* ===== 表格 ===== */
+.md-typeset table {
+  font-size: 0.925em;         /* ~14.8px，表格内文字稍小以容纳更多列 */
+}
+
+/* ===== 引用块 ===== */
+.md-typeset blockquote {
+  font-size: 1em;
+  line-height: 1.75;
+}

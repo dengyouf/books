@@ -1,0 +1,4 @@
+mkdocs-material>=9.4
+mkdocs-with-pdf==0.9.3
+mkdocs-table-reader-plugin==2.0
+pymdown-extensions>=10.2,<11

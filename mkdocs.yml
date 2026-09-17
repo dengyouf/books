@@ -1,0 +1,83 @@
+site_name: "运维手册"
+site_url: http://127.0.0.1:8000/
+
+theme:
+  name: material
+  custom_dir: overrides
+  palette:
+    scheme: default
+    primary: black
+    accent: blue
+  logo: ./pic/logo.png
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.tracking
+    - navigation.top
+    # - navigation.path           # 路径面包屑，内容少时显得啰嗦，先注释
+    - navigation.indexes
+    - navigation.sections         # ✨ 新增：让侧边栏显示分组
+    - navigation.expand           # ✨ 新增：默认展开所有分组
+    # - header.autohide
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+    - toc.integrate
+    # - toc.follow                # 可选：滚动时 TOC 跟随
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - toc:
+      permalink: "false"              # ✨ 原来 permalink 后面是空的，改成 # 显示锚点符号
+      title: 本页目录              # ✨ 可选：给 TOC 加个标题
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+
+plugins:
+  - search
+  - table-reader
+  - print-site
+
+extra:
+  homepage: /                    # ✨ 原来为空，改成 / 指向首页
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - 首页: index.md
+  - 系统运维:
+      - Linux 基础: ops/linux.md
+      - Nginx: ops/nginx.md
+      - Docker: ops/docker.md
+  - 数据库:
+      - MySQL:
+          - Installation: db/mysql-installation.md
+      - PostgreSQL:
+          - Installation: db/pgsql-installation.md
+      - Redis: db/redis.md
+  - 网络:
+      - rsync: network/rsync.md
+  - 镜像源:
+      - Rocky Linux: huawei/rocky-linux.md
+  - 关于: about.md
+
+not_in_nav: |
+  /tekton.md
