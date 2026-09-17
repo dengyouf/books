@@ -10,20 +10,35 @@ theme:
     accent: blue
   logo: ./pic/logo.png
   features:
-    - navigation.tabs
-    - navigation.tabs.sticky
-    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
     - navigation.top
-    # - navigation.path           # 路径面包屑，内容少时显得啰嗦，先注释
+    - navigation.tracking
+    - navigation.instant
+    - navigation.instant.progress
     - navigation.indexes
-    - navigation.sections         # ✨ 新增：让侧边栏显示分组
-    - navigation.expand           # ✨ 新增：默认展开所有分组
-    # - header.autohide
+    - content.tooltips
+    - content.tabs.link
+    #    - content.action.edit
+    - content.action.view
     - content.code.copy
-    - content.code.select
     - content.code.annotate
-    - toc.integrate
-    # - toc.follow                # 可选：滚动时 TOC 跟随
+    - toc.follow
+#    - navigation.tabs
+#    - navigation.tabs.sticky
+#    - navigation.tracking
+#    - navigation.top
+#    # - navigation.path           # 路径面包屑，内容少时显得啰嗦，先注释
+#    - navigation.indexes
+#    - navigation.sections         # ✨ 新增：让侧边栏显示分组
+#    - navigation.expand           # ✨ 新增：默认展开所有分组
+#    # - header.autohide
+#    - content.code.copy
+#    - content.code.select
+#    - content.code.annotate
+#    - toc.integrate
+#    # - toc.follow                # 可选：滚动时 TOC 跟随
 
 markdown_extensions:
   - attr_list
@@ -69,7 +84,9 @@ nav:
       - Docker: ops/docker.md
   - 数据库:
       - MySQL:
-          - Installation: db/mysql-installation.md
+          - 安装手册: db/mysql-installation.md
+          - 数据库日志: db/mysql-logs.md
+          - 备份与恢复: db/mysql-backup-and-recovery.md
       - PostgreSQL:
           - Installation: db/pgsql-installation.md
       - Redis: db/redis.md
