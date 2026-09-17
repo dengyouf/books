@@ -1,0 +1,1654 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="http://127.0.0.1:8000/print_page/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Print Site - 运维手册</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/print-site.css">
+    
+      <link rel="stylesheet" href="../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
+        })
+        </script>
+        </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#index" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  <p><b>发布时间:</b> <i>2026-09-15 11:30:17 +0800</i> <b>版本信息:</b> <i>91c3338</i>  <b>提交者:</b> <i>dengyouf@gmail.com</i>  <b>摘要:</b> <i>初始化提交</i></p>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="/" title="运维手册" class="md-header__button md-logo" aria-label="运维手册" data-md-component="logo">
+      
+  <img src="../pic/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            运维手册
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Print Site
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../ops/linux.md" class="md-tabs__link">
+          
+  
+  
+    
+  
+  系统运维
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../db/mysql-installation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数据库
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../network/rsync.md" class="md-tabs__link">
+          
+  
+  
+    
+  
+  网络
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../huawei/rocky-linux/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  镜像源
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../about.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="/" title="运维手册" class="md-nav__button md-logo" aria-label="运维手册" data-md-component="logo">
+      
+  <img src="../pic/logo.png" alt="logo">
+
+    </a>
+    运维手册
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    系统运维
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    系统运维
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ops/linux.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux 基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ops/nginx.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nginx
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ops/docker.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据库
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数据库
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MySQL
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MySQL
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db/mysql-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    PostgreSQL
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db/pgsql-installation.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db/redis.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    网络
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    网络
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network/rsync.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    rsync
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    镜像源
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    镜像源
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../huawei/rocky-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rocky Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div id="print-site-page" class="print-site-enumerate-headings print-site-enumerate-figures">
+        <section class="print-page">
+            <div id="print-page-toc" data-toc-depth="3">
+                <nav role='navigation' class='print-page-toc-nav'>
+                <h1 class='print-page-toc-title'>本页目录</h1>
+                </nav>
+            </div>
+        </section>
+        <section class="print-page" id="index" heading-number="1"><h1 id="index-_1">运维笔记</h1>
+<p>个人记录，随手整理，不保证完整。</p>
+<hr /></section>
+                    <section class='print-page md-section' id='section-2' heading-number='2'>
+                        <h1>系统运维<a class='headerlink' href='#section-2' title='Permanent link'></a>
+                        </h1>
+                    </section>
+                    <section class='print-page md-section' id='section-3' heading-number='3'>
+                        <h1>数据库<a class='headerlink' href='#section-3' title='Permanent link'></a>
+                        </h1>
+                    
+                    <section class='print-page md-section' id='section-3-1' heading-number='3.1'>
+                        <h1>MySQL<a class='headerlink' href='#section-3-1' title='Permanent link'></a>
+                        </h1>
+                    <section class="print-page" id="db-mysql-installation" heading-number="3.1.1"><h1 id="db-mysql-installation-db-mysql-installation">Installation</h1><h2 id="mysql">MySQL服务安装</h2>
+<p>在 Rocky Linux 10上安装 MySQL Server 8.4.11</p>
+<hr />
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="db-mysql-installation-__tabbed_1_1" name="db-mysql-installation-__tabbed_1" type="radio" /><input id="db-mysql-installation-__tabbed_1_2" name="db-mysql-installation-__tabbed_1" type="radio" /><input id="db-mysql-installation-__tabbed_1_3" name="db-mysql-installation-__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="db-mysql-installation-__tabbed_1_1">Yum</label><label for="db-mysql-installation-__tabbed_1_2">Generic Binaries</label><label for="db-mysql-installation-__tabbed_1_3">Container</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#db-mysql-installation-__codelineno-0-1"></a>wget<span class="w"> </span>https://dev.mysql.com/get/mysql84-community-release-el10-3.noarch.rpm
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#db-mysql-installation-__codelineno-0-2"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>mysql84-community-release-el10-3.noarch.rpm
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#db-mysql-installation-__codelineno-0-3"></a><span class="c1"># 禁用 9.7 相关的源</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#db-mysql-installation-__codelineno-0-4"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--disable<span class="w"> </span>mysql-9.7-lts-community<span class="w"> </span>mysql-tools-9.7-lts-community
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#db-mysql-installation-__codelineno-0-5"></a><span class="c1"># 启用 8.4 相关的源</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#db-mysql-installation-__codelineno-0-6"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--enable<span class="w"> </span>mysql-8.4-lts-community<span class="w"> </span>mysql-tools-8.4-lts-community
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#db-mysql-installation-__codelineno-0-7"></a><span class="c1"># </span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#db-mysql-installation-__codelineno-0-8"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>mysql-community-server<span class="w"> </span>--setopt<span class="o">=</span><span class="nv">install_weak_deps</span><span class="o">=</span>False
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#db-mysql-installation-__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#db-mysql-installation-__codelineno-0-10"></a><span class="c1"># 启动服务</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#db-mysql-installation-__codelineno-0-11"></a>sudo<span class="w"> </span>systemctl<span class="w">  </span>start<span class="w">  </span>mysqld
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#db-mysql-installation-__codelineno-0-12"></a>sudo<span class="w"> </span>grep<span class="w"> </span><span class="s1">'temporary password'</span><span class="w"> </span>/var/log/mysqld.log
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#db-mysql-installation-__codelineno-0-13"></a><span class="m">2026</span>-09-16T10:14:47.625949Z<span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="o">[</span>Note<span class="o">]</span><span class="w"> </span><span class="o">[</span>MY-010454<span class="o">]</span><span class="w"> </span><span class="o">[</span>Server<span class="o">]</span><span class="w"> </span>A<span class="w"> </span>temporary<span class="w"> </span>password<span class="w"> </span>is<span class="w"> </span>generated<span class="w"> </span><span class="k">for</span><span class="w"> </span>root@localhost:<span class="w"> </span>y*f,?<span class="o">=</span>MA7nTi
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#db-mysql-installation-__codelineno-0-14"></a><span class="c1"># 修改密码</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#db-mysql-installation-__codelineno-0-15"></a>mysql<span class="w"> </span>-uroot<span class="w"> </span>-p<span class="s2">"y*f,?=MA7nTi"</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#db-mysql-installation-__codelineno-0-16"></a>mysql:<span class="w"> </span><span class="o">[</span>Warning<span class="o">]</span><span class="w"> </span>Using<span class="w"> </span>a<span class="w"> </span>password<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span><span class="nb">command</span><span class="w"> </span>line<span class="w"> </span>interface<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>insecure.
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#db-mysql-installation-__codelineno-0-17"></a>Welcome<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>MySQL<span class="w"> </span>monitor.<span class="w">  </span>Commands<span class="w"> </span>end<span class="w"> </span>with<span class="w"> </span><span class="p">;</span><span class="w"> </span>or<span class="w"> </span><span class="se">\g</span>.
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#db-mysql-installation-__codelineno-0-18"></a>Your<span class="w"> </span>MySQL<span class="w"> </span>connection<span class="w"> </span>id<span class="w"> </span>is<span class="w"> </span><span class="m">12</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#db-mysql-installation-__codelineno-0-19"></a>Server<span class="w"> </span>version:<span class="w"> </span><span class="m">8</span>.4.11
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#db-mysql-installation-__codelineno-0-20"></a>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#db-mysql-installation-__codelineno-0-21"></a>Copyright<span class="w"> </span><span class="o">(</span>c<span class="o">)</span><span class="w"> </span><span class="m">2000</span>,<span class="w"> </span><span class="m">2026</span>,<span class="w"> </span>Oracle<span class="w"> </span>and/or<span class="w"> </span>its<span class="w"> </span>affiliates.
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#db-mysql-installation-__codelineno-0-22"></a>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#db-mysql-installation-__codelineno-0-23"></a>Oracle<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>registered<span class="w"> </span>trademark<span class="w"> </span>of<span class="w"> </span>Oracle<span class="w"> </span>Corporation<span class="w"> </span>and/or<span class="w"> </span>its
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#db-mysql-installation-__codelineno-0-24"></a>affiliates.<span class="w"> </span>Other<span class="w"> </span>names<span class="w"> </span>may<span class="w"> </span>be<span class="w"> </span>trademarks<span class="w"> </span>of<span class="w"> </span>their<span class="w"> </span>respective
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#db-mysql-installation-__codelineno-0-25"></a>owners.
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#db-mysql-installation-__codelineno-0-26"></a>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#db-mysql-installation-__codelineno-0-27"></a>Type<span class="w"> </span><span class="s1">'help;'</span><span class="w"> </span>or<span class="w"> </span><span class="s1">'\h'</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>help.<span class="w"> </span>Type<span class="w"> </span><span class="s1">'\c'</span><span class="w"> </span>to<span class="w"> </span>clear<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>input<span class="w"> </span>statement.
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#db-mysql-installation-__codelineno-0-28"></a>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#db-mysql-installation-__codelineno-0-29"></a>mysql&gt;<span class="w"> </span>ALTER<span class="w"> </span>USER<span class="w"> </span><span class="s1">'root'</span>@<span class="s1">'localhost'</span><span class="w"> </span>IDENTIFIED<span class="w"> </span>BY<span class="w"> </span><span class="s1">'Rocky@2026#MySQL'</span><span class="p">;</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#db-mysql-installation-__codelineno-0-30"></a>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#db-mysql-installation-__codelineno-0-31"></a><span class="c1"># 临时降低密码策略（仅测试环境）</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#db-mysql-installation-__codelineno-0-32"></a>--<span class="w"> </span>查看当前策略
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#db-mysql-installation-__codelineno-0-33"></a>SHOW<span class="w"> </span>VARIABLES<span class="w"> </span>LIKE<span class="w"> </span><span class="s1">'validate_password%'</span><span class="p">;</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#db-mysql-installation-__codelineno-0-34"></a>--<span class="w"> </span>将策略降为<span class="w"> </span>LOW（只检查长度），长度设为<span class="w"> </span><span class="m">6</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#db-mysql-installation-__codelineno-0-35"></a>SET<span class="w"> </span>GLOBAL<span class="w"> </span>validate_password.policy<span class="w"> </span><span class="o">=</span><span class="w"> </span>LOW<span class="p">;</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#db-mysql-installation-__codelineno-0-36"></a>SET<span class="w"> </span>GLOBAL<span class="w"> </span>validate_password.length<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">6</span><span class="p">;</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#db-mysql-installation-__codelineno-0-37"></a>--<span class="w"> </span>现在可以设置简单密码了
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#db-mysql-installation-__codelineno-0-38"></a>ALTER<span class="w"> </span>USER<span class="w"> </span><span class="s1">'root'</span>@<span class="s1">'localhost'</span><span class="w"> </span>IDENTIFIED<span class="w"> </span>BY<span class="w"> </span><span class="s1">'rootPwd'</span><span class="p">;</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#db-mysql-installation-__codelineno-1-1"></a><span class="c1"># 安装依赖包</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#db-mysql-installation-__codelineno-1-2"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>libaio<span class="w"> </span>ncurses-compat-libs
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#db-mysql-installation-__codelineno-1-3"></a><span class="c1"># 准备用户</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#db-mysql-installation-__codelineno-1-4"></a>sudo<span class="w"> </span>groupadd<span class="w"> </span>-r<span class="w">  </span>-g<span class="w"> </span><span class="m">27</span><span class="w"> </span>mysql
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#db-mysql-installation-__codelineno-1-5"></a>sudo<span class="w"> </span>useradd<span class="w"> </span>-r<span class="w"> </span>-m<span class="w"> </span>-g<span class="w"> </span><span class="m">27</span><span class="w"> </span>-u<span class="w"> </span><span class="m">27</span><span class="w"> </span>-d<span class="w"> </span>/data/mysql<span class="w"> </span>mysql
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#db-mysql-installation-__codelineno-1-6"></a><span class="c1"># 准备程序文件</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#db-mysql-installation-__codelineno-1-7"></a>sudo<span class="w"> </span>wget<span class="w"> </span>https://dev.mysql.com/get/Downloads/MySQL-8.4/mysql-8.4.11-linux-glibc2.28-x86_64.tar.xz
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#db-mysql-installation-__codelineno-1-8"></a>sudo<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>mysql-8.4.11-linux-glibc2.28-x86_64.tar.xz<span class="w">  </span>-C<span class="w"> </span>/usr/local/
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#db-mysql-installation-__codelineno-1-9"></a>sudo<span class="w"> </span>ln<span class="w"> </span>-sv<span class="w"> </span>/usr/local/mysql-8.4.11-linux-glibc2.28-x86_64/<span class="w"> </span>/usr/local/mysql
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#db-mysql-installation-__codelineno-1-10"></a>sudo<span class="w">  </span>chown<span class="w"> </span>-R<span class="w"> </span>mysql:mysql<span class="w"> </span>/usr/local/mysql*
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#db-mysql-installation-__codelineno-1-11"></a><span class="c1"># 准备环境变量</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#db-mysql-installation-__codelineno-1-12"></a>sudo<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"PATH=/usr/local/mysql/bin:</span><span class="nv">$PATH</span><span class="s2">"</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/profile.d/mysql.sh
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#db-mysql-installation-__codelineno-1-13"></a>sudo<span class="w"> </span><span class="nb">source</span><span class="w"> </span>/etc/profile.d/mysql.sh
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#db-mysql-installation-__codelineno-1-14"></a><span class="c1"># 准备配置文件</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#db-mysql-installation-__codelineno-1-15"></a>cat<span class="w">  </span>&gt;<span class="w"> </span>/etc/my.cnf<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#db-mysql-installation-__codelineno-1-16"></a><span class="s">[client]</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#db-mysql-installation-__codelineno-1-17"></a><span class="s">socket = /data/mysql/run/mysql.sock</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#db-mysql-installation-__codelineno-1-18"></a><span class="s">loose-default-character-set = utf8mb4</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#db-mysql-installation-__codelineno-1-19"></a><span class="s">[mysqld_safe]</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#db-mysql-installation-__codelineno-1-20"></a><span class="s">user = mysql</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#db-mysql-installation-__codelineno-1-21"></a><span class="s">nice = 0</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#db-mysql-installation-__codelineno-1-22"></a><span class="s">[mysqld]</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#db-mysql-installation-__codelineno-1-23"></a><span class="s">########## 基础与路径 ##########</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#db-mysql-installation-__codelineno-1-24"></a><span class="s">user = mysql</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#db-mysql-installation-__codelineno-1-25"></a><span class="s">datadir = /data/mysql/data</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#db-mysql-installation-__codelineno-1-26"></a><span class="s">socket = /data/mysql/run/mysql.sock</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#db-mysql-installation-__codelineno-1-27"></a><span class="s">log-error = /data/mysql/logs/mysqld.log</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#db-mysql-installation-__codelineno-1-28"></a><span class="s">pid-file = /data/mysql/run/mysqld.pid</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#db-mysql-installation-__codelineno-1-29"></a><span class="s">tmpdir = /data/mysql/tmp</span>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#db-mysql-installation-__codelineno-1-30"></a><span class="s">########## 字符集与排序规则 ##########</span>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#db-mysql-installation-__codelineno-1-31"></a><span class="s">character_set_server = utf8mb4</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#db-mysql-installation-__codelineno-1-32"></a><span class="s">collation_server = utf8mb4_0900_ai_ci</span>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#db-mysql-installation-__codelineno-1-33"></a><span class="s">explicit_defaults_for_timestamp = ON</span>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#db-mysql-installation-__codelineno-1-34"></a><span class="s">########## 时区与端口 ##########</span>
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#db-mysql-installation-__codelineno-1-35"></a><span class="s">default-time-zone = '+8:00'</span>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#db-mysql-installation-__codelineno-1-36"></a><span class="s">port = 3306</span>
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#db-mysql-installation-__codelineno-1-37"></a><span class="s">bind-address = 0.0.0.0</span>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#db-mysql-installation-__codelineno-1-38"></a><span class="s">########## 连接与线程 ##########</span>
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#db-mysql-installation-__codelineno-1-39"></a><span class="s">max_connections = 500</span>
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#db-mysql-installation-__codelineno-1-40"></a><span class="s">max_connect_errors = 1000000</span>
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#db-mysql-installation-__codelineno-1-41"></a><span class="s">thread_cache_size = 64</span>
+</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#db-mysql-installation-__codelineno-1-42"></a><span class="s">open_files_limit = 65535</span>
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#db-mysql-installation-__codelineno-1-43"></a><span class="s">back_log = 1024</span>
+</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#db-mysql-installation-__codelineno-1-44"></a><span class="s">interactive_timeout = 600</span>
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#db-mysql-installation-__codelineno-1-45"></a><span class="s">wait_timeout = 600</span>
+</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#db-mysql-installation-__codelineno-1-46"></a><span class="s">lock_wait_timeout = 300</span>
+</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#db-mysql-installation-__codelineno-1-47"></a><span class="s">########## InnoDB 内存与缓冲池 ##########</span>
+</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#db-mysql-installation-__codelineno-1-48"></a><span class="s">innodb_buffer_pool_size = 10G</span>
+</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#db-mysql-installation-__codelineno-1-49"></a><span class="s">innodb_buffer_pool_instances = 8</span>
+</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#db-mysql-installation-__codelineno-1-50"></a><span class="s">innodb_redo_log_capacity = 2G</span>
+</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#db-mysql-installation-__codelineno-1-51"></a><span class="s">########## InnoDB 磁盘 I/O ##########</span>
+</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#db-mysql-installation-__codelineno-1-52"></a><span class="s">innodb_io_capacity = 2000</span>
+</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#db-mysql-installation-__codelineno-1-53"></a><span class="s">innodb_io_capacity_max = 4000</span>
+</span><span id="__span-1-54"><a id="__codelineno-1-54" name="__codelineno-1-54" href="#db-mysql-installation-__codelineno-1-54"></a><span class="s">innodb_flush_method = O_DIRECT</span>
+</span><span id="__span-1-55"><a id="__codelineno-1-55" name="__codelineno-1-55" href="#db-mysql-installation-__codelineno-1-55"></a><span class="s">innodb_flush_log_at_trx_commit = 1</span>
+</span><span id="__span-1-56"><a id="__codelineno-1-56" name="__codelineno-1-56" href="#db-mysql-installation-__codelineno-1-56"></a><span class="s">innodb_thread_concurrency = 0</span>
+</span><span id="__span-1-57"><a id="__codelineno-1-57" name="__codelineno-1-57" href="#db-mysql-installation-__codelineno-1-57"></a><span class="s">innodb_file_per_table = ON</span>
+</span><span id="__span-1-58"><a id="__codelineno-1-58" name="__codelineno-1-58" href="#db-mysql-installation-__codelineno-1-58"></a><span class="s">innodb_temp_data_file_path = ibtmp1:12M:autoextend:max:5G</span>
+</span><span id="__span-1-59"><a id="__codelineno-1-59" name="__codelineno-1-59" href="#db-mysql-installation-__codelineno-1-59"></a><span class="s">########## 会话级缓冲区 ##########</span>
+</span><span id="__span-1-60"><a id="__codelineno-1-60" name="__codelineno-1-60" href="#db-mysql-installation-__codelineno-1-60"></a><span class="s">sort_buffer_size = 4M</span>
+</span><span id="__span-1-61"><a id="__codelineno-1-61" name="__codelineno-1-61" href="#db-mysql-installation-__codelineno-1-61"></a><span class="s">join_buffer_size = 4M</span>
+</span><span id="__span-1-62"><a id="__codelineno-1-62" name="__codelineno-1-62" href="#db-mysql-installation-__codelineno-1-62"></a><span class="s">read_buffer_size = 2M</span>
+</span><span id="__span-1-63"><a id="__codelineno-1-63" name="__codelineno-1-63" href="#db-mysql-installation-__codelineno-1-63"></a><span class="s">read_rnd_buffer_size = 4M</span>
+</span><span id="__span-1-64"><a id="__codelineno-1-64" name="__codelineno-1-64" href="#db-mysql-installation-__codelineno-1-64"></a><span class="s">tmp_table_size = 64M</span>
+</span><span id="__span-1-65"><a id="__codelineno-1-65" name="__codelineno-1-65" href="#db-mysql-installation-__codelineno-1-65"></a><span class="s">max_heap_table_size = 64M</span>
+</span><span id="__span-1-66"><a id="__codelineno-1-66" name="__codelineno-1-66" href="#db-mysql-installation-__codelineno-1-66"></a><span class="s">########## 表缓存 ##########</span>
+</span><span id="__span-1-67"><a id="__codelineno-1-67" name="__codelineno-1-67" href="#db-mysql-installation-__codelineno-1-67"></a><span class="s">table_open_cache = 4000</span>
+</span><span id="__span-1-68"><a id="__codelineno-1-68" name="__codelineno-1-68" href="#db-mysql-installation-__codelineno-1-68"></a><span class="s">table_definition_cache = 2000</span>
+</span><span id="__span-1-69"><a id="__codelineno-1-69" name="__codelineno-1-69" href="#db-mysql-installation-__codelineno-1-69"></a><span class="s">table_open_cache_instances = 16</span>
+</span><span id="__span-1-70"><a id="__codelineno-1-70" name="__codelineno-1-70" href="#db-mysql-installation-__codelineno-1-70"></a><span class="s">########## 事务隔离与 SQL 模式 ##########</span>
+</span><span id="__span-1-71"><a id="__codelineno-1-71" name="__codelineno-1-71" href="#db-mysql-installation-__codelineno-1-71"></a><span class="s">transaction_isolation = READ-COMMITTED</span>
+</span><span id="__span-1-72"><a id="__codelineno-1-72" name="__codelineno-1-72" href="#db-mysql-installation-__codelineno-1-72"></a><span class="s">sql_mode = STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION</span>
+</span><span id="__span-1-73"><a id="__codelineno-1-73" name="__codelineno-1-73" href="#db-mysql-installation-__codelineno-1-73"></a><span class="s">########## 日志与诊断 ##########</span>
+</span><span id="__span-1-74"><a id="__codelineno-1-74" name="__codelineno-1-74" href="#db-mysql-installation-__codelineno-1-74"></a><span class="s">log_error_verbosity = 3</span>
+</span><span id="__span-1-75"><a id="__codelineno-1-75" name="__codelineno-1-75" href="#db-mysql-installation-__codelineno-1-75"></a><span class="s">innodb_print_ddl_logs = ON</span>
+</span><span id="__span-1-76"><a id="__codelineno-1-76" name="__codelineno-1-76" href="#db-mysql-installation-__codelineno-1-76"></a><span class="s">performance_schema = ON</span>
+</span><span id="__span-1-77"><a id="__codelineno-1-77" name="__codelineno-1-77" href="#db-mysql-installation-__codelineno-1-77"></a><span class="s">########## 慢查询日志 ##########</span>
+</span><span id="__span-1-78"><a id="__codelineno-1-78" name="__codelineno-1-78" href="#db-mysql-installation-__codelineno-1-78"></a><span class="s">slow_query_log = ON</span>
+</span><span id="__span-1-79"><a id="__codelineno-1-79" name="__codelineno-1-79" href="#db-mysql-installation-__codelineno-1-79"></a><span class="s">slow_query_log_file = /data/mysql/logs/mysql-slow.log</span>
+</span><span id="__span-1-80"><a id="__codelineno-1-80" name="__codelineno-1-80" href="#db-mysql-installation-__codelineno-1-80"></a><span class="s">long_query_time = 1</span>
+</span><span id="__span-1-81"><a id="__codelineno-1-81" name="__codelineno-1-81" href="#db-mysql-installation-__codelineno-1-81"></a><span class="s">log_queries_not_using_indexes = ON</span>
+</span><span id="__span-1-82"><a id="__codelineno-1-82" name="__codelineno-1-82" href="#db-mysql-installation-__codelineno-1-82"></a><span class="s">########## 安全相关 ##########</span>
+</span><span id="__span-1-83"><a id="__codelineno-1-83" name="__codelineno-1-83" href="#db-mysql-installation-__codelineno-1-83"></a><span class="s">local_infile = OFF</span>
+</span><span id="__span-1-84"><a id="__codelineno-1-84" name="__codelineno-1-84" href="#db-mysql-installation-__codelineno-1-84"></a><span class="s">skip_name_resolve = ON</span>
+</span><span id="__span-1-85"><a id="__codelineno-1-85" name="__codelineno-1-85" href="#db-mysql-installation-__codelineno-1-85"></a><span class="s">secure_file_priv = /data/mysql/mysql-files</span>
+</span><span id="__span-1-86"><a id="__codelineno-1-86" name="__codelineno-1-86" href="#db-mysql-installation-__codelineno-1-86"></a><span class="s"># mysqlx = 0</span>
+</span><span id="__span-1-87"><a id="__codelineno-1-87" name="__codelineno-1-87" href="#db-mysql-installation-__codelineno-1-87"></a><span class="s">########## Binlog 配置（新增） ##########</span>
+</span><span id="__span-1-88"><a id="__codelineno-1-88" name="__codelineno-1-88" href="#db-mysql-installation-__codelineno-1-88"></a><span class="s">log-bin = /data/mysql/logs/mysql-bin</span>
+</span><span id="__span-1-89"><a id="__codelineno-1-89" name="__codelineno-1-89" href="#db-mysql-installation-__codelineno-1-89"></a><span class="s">server-id = 3306</span>
+</span><span id="__span-1-90"><a id="__codelineno-1-90" name="__codelineno-1-90" href="#db-mysql-installation-__codelineno-1-90"></a><span class="s">binlog_format = ROW</span>
+</span><span id="__span-1-91"><a id="__codelineno-1-91" name="__codelineno-1-91" href="#db-mysql-installation-__codelineno-1-91"></a><span class="s">binlog_row_image = FULL</span>
+</span><span id="__span-1-92"><a id="__codelineno-1-92" name="__codelineno-1-92" href="#db-mysql-installation-__codelineno-1-92"></a><span class="s">binlog_expire_logs_seconds = 604800</span>
+</span><span id="__span-1-93"><a id="__codelineno-1-93" name="__codelineno-1-93" href="#db-mysql-installation-__codelineno-1-93"></a><span class="s">max_binlog_size = 500M</span>
+</span><span id="__span-1-94"><a id="__codelineno-1-94" name="__codelineno-1-94" href="#db-mysql-installation-__codelineno-1-94"></a><span class="s">sync_binlog = 1</span>
+</span><span id="__span-1-95"><a id="__codelineno-1-95" name="__codelineno-1-95" href="#db-mysql-installation-__codelineno-1-95"></a><span class="s">EOF</span>
+</span><span id="__span-1-96"><a id="__codelineno-1-96" name="__codelineno-1-96" href="#db-mysql-installation-__codelineno-1-96"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>/etc/my.cnf
+</span><span id="__span-1-97"><a id="__codelineno-1-97" name="__codelineno-1-97" href="#db-mysql-installation-__codelineno-1-97"></a><span class="c1"># 创建目录并授权</span>
+</span><span id="__span-1-98"><a id="__codelineno-1-98" name="__codelineno-1-98" href="#db-mysql-installation-__codelineno-1-98"></a>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/data/mysql/<span class="o">{</span>data,logs,run,mysql-files,tmp<span class="o">}</span>
+</span><span id="__span-1-99"><a id="__codelineno-1-99" name="__codelineno-1-99" href="#db-mysql-installation-__codelineno-1-99"></a>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mysql:mysql<span class="w"> </span>/data/mysql
+</span><span id="__span-1-100"><a id="__codelineno-1-100" name="__codelineno-1-100" href="#db-mysql-installation-__codelineno-1-100"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">750</span><span class="w"> </span>/data/mysql<span class="w"> </span>/data/mysql/<span class="o">{</span>data,logs,run,mysql-files,tmp<span class="o">}</span>
+</span><span id="__span-1-101"><a id="__codelineno-1-101" name="__codelineno-1-101" href="#db-mysql-installation-__codelineno-1-101"></a><span class="c1"># 初始化数据库文件和初始密码</span>
+</span><span id="__span-1-102"><a id="__codelineno-1-102" name="__codelineno-1-102" href="#db-mysql-installation-__codelineno-1-102"></a>mysqld<span class="w"> </span>--initialize<span class="w"> </span>--user<span class="o">=</span>mysql<span class="w"> </span>--datadir<span class="o">=</span>/data/mysql/data/
+</span><span id="__span-1-103"><a id="__codelineno-1-103" name="__codelineno-1-103" href="#db-mysql-installation-__codelineno-1-103"></a>grep<span class="w"> </span><span class="s1">'temporary password'</span><span class="w"> </span>/data/mysql/logs/mysqld.log
+</span><span id="__span-1-104"><a id="__codelineno-1-104" name="__codelineno-1-104" href="#db-mysql-installation-__codelineno-1-104"></a><span class="m">2026</span>-09-16T11:35:44.808333Z<span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="o">[</span>Note<span class="o">]</span><span class="w"> </span><span class="o">[</span>MY-010454<span class="o">]</span><span class="w"> </span><span class="o">[</span>Server<span class="o">]</span><span class="w"> </span>A<span class="w"> </span>temporary<span class="w"> </span>password<span class="w"> </span>is<span class="w"> </span>generated<span class="w"> </span><span class="k">for</span><span class="w"> </span>root@localhost:<span class="w"> </span>Jq&lt;ip-wCt9a.
+</span><span id="__span-1-105"><a id="__codelineno-1-105" name="__codelineno-1-105" href="#db-mysql-installation-__codelineno-1-105"></a><span class="c1"># 提供启动文件</span>
+</span><span id="__span-1-106"><a id="__codelineno-1-106" name="__codelineno-1-106" href="#db-mysql-installation-__codelineno-1-106"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>/etc/systemd/system/mysqld.service<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+</span><span id="__span-1-107"><a id="__codelineno-1-107" name="__codelineno-1-107" href="#db-mysql-installation-__codelineno-1-107"></a><span class="s">[Unit]</span>
+</span><span id="__span-1-108"><a id="__codelineno-1-108" name="__codelineno-1-108" href="#db-mysql-installation-__codelineno-1-108"></a><span class="s">Description=MySQL 8.4 database server (custom data paths)</span>
+</span><span id="__span-1-109"><a id="__codelineno-1-109" name="__codelineno-1-109" href="#db-mysql-installation-__codelineno-1-109"></a><span class="s">Documentation=man:mysqld(8)</span>
+</span><span id="__span-1-110"><a id="__codelineno-1-110" name="__codelineno-1-110" href="#db-mysql-installation-__codelineno-1-110"></a><span class="s">Documentation=http://dev.mysql.com/doc/refman/en/using-systemd.html</span>
+</span><span id="__span-1-111"><a id="__codelineno-1-111" name="__codelineno-1-111" href="#db-mysql-installation-__codelineno-1-111"></a><span class="s">After=network.target</span>
+</span><span id="__span-1-112"><a id="__codelineno-1-112" name="__codelineno-1-112" href="#db-mysql-installation-__codelineno-1-112"></a><span class="s">After=syslog.target</span>
+</span><span id="__span-1-113"><a id="__codelineno-1-113" name="__codelineno-1-113" href="#db-mysql-installation-__codelineno-1-113"></a><span class="s">[Install]</span>
+</span><span id="__span-1-114"><a id="__codelineno-1-114" name="__codelineno-1-114" href="#db-mysql-installation-__codelineno-1-114"></a><span class="s">WantedBy=multi-user.target</span>
+</span><span id="__span-1-115"><a id="__codelineno-1-115" name="__codelineno-1-115" href="#db-mysql-installation-__codelineno-1-115"></a><span class="s">[Service]</span>
+</span><span id="__span-1-116"><a id="__codelineno-1-116" name="__codelineno-1-116" href="#db-mysql-installation-__codelineno-1-116"></a><span class="s">User=mysql</span>
+</span><span id="__span-1-117"><a id="__codelineno-1-117" name="__codelineno-1-117" href="#db-mysql-installation-__codelineno-1-117"></a><span class="s">Group=mysql</span>
+</span><span id="__span-1-118"><a id="__codelineno-1-118" name="__codelineno-1-118" href="#db-mysql-installation-__codelineno-1-118"></a><span class="s"># 指定使用自定义的配置文件</span>
+</span><span id="__span-1-119"><a id="__codelineno-1-119" name="__codelineno-1-119" href="#db-mysql-installation-__codelineno-1-119"></a><span class="s">ExecStart=/usr/local/mysql/bin/mysqld --defaults-file=/etc/my.cnf --user=mysql</span>
+</span><span id="__span-1-120"><a id="__codelineno-1-120" name="__codelineno-1-120" href="#db-mysql-installation-__codelineno-1-120"></a><span class="s">PIDFile=/data/mysql/run/mysqld.pid</span>
+</span><span id="__span-1-121"><a id="__codelineno-1-121" name="__codelineno-1-121" href="#db-mysql-installation-__codelineno-1-121"></a><span class="s"># 服务启动类型，对于 MySQL 8.4 官方推荐使用 notify</span>
+</span><span id="__span-1-122"><a id="__codelineno-1-122" name="__codelineno-1-122" href="#db-mysql-installation-__codelineno-1-122"></a><span class="s">Type=notify</span>
+</span><span id="__span-1-123"><a id="__codelineno-1-123" name="__codelineno-1-123" href="#db-mysql-installation-__codelineno-1-123"></a><span class="s"># 如果启动失败或异常退出，自动重启</span>
+</span><span id="__span-1-124"><a id="__codelineno-1-124" name="__codelineno-1-124" href="#db-mysql-installation-__codelineno-1-124"></a><span class="s">Restart=on-failure</span>
+</span><span id="__span-1-125"><a id="__codelineno-1-125" name="__codelineno-1-125" href="#db-mysql-installation-__codelineno-1-125"></a><span class="s">RestartPreventExitStatus=1</span>
+</span><span id="__span-1-126"><a id="__codelineno-1-126" name="__codelineno-1-126" href="#db-mysql-installation-__codelineno-1-126"></a><span class="s"># 文件描述符限制，与你的 my.cnf 中 open_files_limit 保持一致</span>
+</span><span id="__span-1-127"><a id="__codelineno-1-127" name="__codelineno-1-127" href="#db-mysql-installation-__codelineno-1-127"></a><span class="s">LimitNOFILE=65535</span>
+</span><span id="__span-1-128"><a id="__codelineno-1-128" name="__codelineno-1-128" href="#db-mysql-installation-__codelineno-1-128"></a><span class="s"># 给足启动和关闭的时间</span>
+</span><span id="__span-1-129"><a id="__codelineno-1-129" name="__codelineno-1-129" href="#db-mysql-installation-__codelineno-1-129"></a><span class="s">TimeoutSec=300</span>
+</span><span id="__span-1-130"><a id="__codelineno-1-130" name="__codelineno-1-130" href="#db-mysql-installation-__codelineno-1-130"></a><span class="s"># 避免临时文件放在 /tmp</span>
+</span><span id="__span-1-131"><a id="__codelineno-1-131" name="__codelineno-1-131" href="#db-mysql-installation-__codelineno-1-131"></a><span class="s">PrivateTmp=true</span>
+</span><span id="__span-1-132"><a id="__codelineno-1-132" name="__codelineno-1-132" href="#db-mysql-installation-__codelineno-1-132"></a><span class="s">[Install]</span>
+</span><span id="__span-1-133"><a id="__codelineno-1-133" name="__codelineno-1-133" href="#db-mysql-installation-__codelineno-1-133"></a><span class="s">WantedBy=multi-user.target</span>
+</span><span id="__span-1-134"><a id="__codelineno-1-134" name="__codelineno-1-134" href="#db-mysql-installation-__codelineno-1-134"></a><span class="s">EOF</span>
+</span><span id="__span-1-135"><a id="__codelineno-1-135" name="__codelineno-1-135" href="#db-mysql-installation-__codelineno-1-135"></a><span class="c1"># 启动服务</span>
+</span><span id="__span-1-136"><a id="__codelineno-1-136" name="__codelineno-1-136" href="#db-mysql-installation-__codelineno-1-136"></a>systemctl<span class="w">  </span>daemon-reload
+</span><span id="__span-1-137"><a id="__codelineno-1-137" name="__codelineno-1-137" href="#db-mysql-installation-__codelineno-1-137"></a>systemctl<span class="w">  </span>start<span class="w"> </span>mysqld
+</span><span id="__span-1-138"><a id="__codelineno-1-138" name="__codelineno-1-138" href="#db-mysql-installation-__codelineno-1-138"></a><span class="c1"># 修改密码</span>
+</span><span id="__span-1-139"><a id="__codelineno-1-139" name="__codelineno-1-139" href="#db-mysql-installation-__codelineno-1-139"></a>mysql<span class="w"> </span>-uroot<span class="w"> </span>-p<span class="s1">'Jq&lt;ip-wCt9a.'</span>
+</span><span id="__span-1-140"><a id="__codelineno-1-140" name="__codelineno-1-140" href="#db-mysql-installation-__codelineno-1-140"></a>ALTER<span class="w"> </span>USER<span class="w"> </span><span class="s1">'root'</span>@<span class="s1">'localhost'</span><span class="w"> </span>IDENTIFIED<span class="w"> </span>BY<span class="w"> </span><span class="s1">'Rocky@2026#MySQL'</span><span class="p">;</span>
+</span><span id="__span-1-141"><a id="__codelineno-1-141" name="__codelineno-1-141" href="#db-mysql-installation-__codelineno-1-141"></a>--<span class="w"> </span>查看当前策略（临时降低密码策略）（仅测试环境）
+</span><span id="__span-1-142"><a id="__codelineno-1-142" name="__codelineno-1-142" href="#db-mysql-installation-__codelineno-1-142"></a>SHOW<span class="w"> </span>VARIABLES<span class="w"> </span>LIKE<span class="w"> </span><span class="s1">'validate_password%'</span><span class="p">;</span>
+</span><span id="__span-1-143"><a id="__codelineno-1-143" name="__codelineno-1-143" href="#db-mysql-installation-__codelineno-1-143"></a>--<span class="w"> </span>将策略降为<span class="w"> </span>LOW（只检查长度），长度设为<span class="w"> </span><span class="m">6</span>
+</span><span id="__span-1-144"><a id="__codelineno-1-144" name="__codelineno-1-144" href="#db-mysql-installation-__codelineno-1-144"></a>SET<span class="w"> </span>GLOBAL<span class="w"> </span>validate_password.policy<span class="w"> </span><span class="o">=</span><span class="w"> </span>LOW<span class="p">;</span>
+</span><span id="__span-1-145"><a id="__codelineno-1-145" name="__codelineno-1-145" href="#db-mysql-installation-__codelineno-1-145"></a>SET<span class="w"> </span>GLOBAL<span class="w"> </span>validate_password.length<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">6</span><span class="p">;</span>
+</span><span id="__span-1-146"><a id="__codelineno-1-146" name="__codelineno-1-146" href="#db-mysql-installation-__codelineno-1-146"></a>--<span class="w"> </span>现在可以设置简单密码了
+</span><span id="__span-1-147"><a id="__codelineno-1-147" name="__codelineno-1-147" href="#db-mysql-installation-__codelineno-1-147"></a>ALTER<span class="w"> </span>USER<span class="w"> </span><span class="s1">'root'</span>@<span class="s1">'localhost'</span><span class="w"> </span>IDENTIFIED<span class="w"> </span>BY<span class="w"> </span><span class="s1">'rootPwd'</span><span class="p">;</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#db-mysql-installation-__codelineno-2-1"></a>mkdir<span class="w"> </span>-pv<span class="w">  </span>/data/apps/mysql<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/data/apps/mysql
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#db-mysql-installation-__codelineno-2-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>./mysql_data<span class="w"> </span>./mysql_conf<span class="w"> </span>./init
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#db-mysql-installation-__codelineno-2-3"></a>chmod<span class="w"> </span><span class="m">777</span><span class="w"> </span>./mysql_data<span class="w">  </span><span class="c1"># 首次启动必需，容器内 mysql 用户 UID 通常为 999</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#db-mysql-installation-__codelineno-2-4"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>docker-compose.yml<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#db-mysql-installation-__codelineno-2-5"></a><span class="s">services:</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#db-mysql-installation-__codelineno-2-6"></a><span class="s">  mysql:</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#db-mysql-installation-__codelineno-2-7"></a><span class="s">    image: mysql:8.4.11</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#db-mysql-installation-__codelineno-2-8"></a><span class="s">    container_name: mysql8.4</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#db-mysql-installation-__codelineno-2-9"></a><span class="s">    restart: unless-stopped</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#db-mysql-installation-__codelineno-2-10"></a><span class="s">    environment:</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#db-mysql-installation-__codelineno-2-11"></a><span class="s">      MYSQL_ROOT_PASSWORD: "YourStrong@RootPwd123"</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#db-mysql-installation-__codelineno-2-12"></a><span class="s">      MYSQL_DATABASE: "app_db"</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#db-mysql-installation-__codelineno-2-13"></a><span class="s">      MYSQL_USER: "app_user"</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#db-mysql-installation-__codelineno-2-14"></a><span class="s">      MYSQL_PASSWORD: "YourStrong@UserPwd123"</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#db-mysql-installation-__codelineno-2-15"></a><span class="s">      TZ: "Asia/Shanghai"</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#db-mysql-installation-__codelineno-2-16"></a><span class="s">    ports:</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#db-mysql-installation-__codelineno-2-17"></a><span class="s">      - "3306:3306"</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#db-mysql-installation-__codelineno-2-18"></a><span class="s">    volumes:</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#db-mysql-installation-__codelineno-2-19"></a><span class="s">      - ./mysql_data:/var/lib/mysql</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#db-mysql-installation-__codelineno-2-20"></a><span class="s">      - ./mysql_conf:/etc/mysql/conf.d</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#db-mysql-installation-__codelineno-2-21"></a><span class="s">      - ./init:/docker-entrypoint-initdb.d</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#db-mysql-installation-__codelineno-2-22"></a><span class="s">    command:</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#db-mysql-installation-__codelineno-2-23"></a><span class="s">      - --character-set-server=utf8mb4</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#db-mysql-installation-__codelineno-2-24"></a><span class="s">      - --collation-server=utf8mb4_unicode_ci</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#db-mysql-installation-__codelineno-2-25"></a><span class="s">      - --lower_case_table_names=1</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#db-mysql-installation-__codelineno-2-26"></a><span class="s">      - --max_connections=500</span>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#db-mysql-installation-__codelineno-2-27"></a><span class="s">      - --innodb_buffer_pool_size=1G</span>
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#db-mysql-installation-__codelineno-2-28"></a><span class="s">    healthcheck:</span>
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#db-mysql-installation-__codelineno-2-29"></a><span class="s">      test: ["CMD-SHELL", "MYSQL_PWD=$$MYSQL_ROOT_PASSWORD mysqladmin ping -h 127.0.0.1"]</span>
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#db-mysql-installation-__codelineno-2-30"></a><span class="s">      interval: 10s</span>
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#db-mysql-installation-__codelineno-2-31"></a><span class="s">      timeout: 5s</span>
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#db-mysql-installation-__codelineno-2-32"></a><span class="s">      retries: 10</span>
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#db-mysql-installation-__codelineno-2-33"></a><span class="s">      start_period: 40s</span>
+</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#db-mysql-installation-__codelineno-2-34"></a><span class="s">EOF</span>
+</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#db-mysql-installation-__codelineno-2-35"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<h1 id="db-mysql-installation-mysql_1">MySQL多实例安装</h1>
+<p>使用二进制的方式，安装在一台服务器上安装多个MySQL多实例，能有效利用服务器资源。</p>
+<ol>
+<li>准备实例目录</li>
+</ol>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#db-mysql-installation-__codelineno-3-1"></a>mkdir<span class="w"> </span>-pv<span class="w">  </span>/data/apps/mysql/<span class="o">{</span><span class="m">3306</span>,3307,3308<span class="o">}</span>/<span class="o">{</span>data,etc,bin,logs,run,mysql-files,tmp<span class="o">}</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#db-mysql-installation-__codelineno-3-2"></a>tree<span class="w"> </span>/data/apps/mysql/
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#db-mysql-installation-__codelineno-3-3"></a>/data/apps/mysql/
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#db-mysql-installation-__codelineno-3-4"></a>├──<span class="w"> </span><span class="m">3306</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#db-mysql-installation-__codelineno-3-5"></a>│<span class="w">   </span>├──<span class="w"> </span>bin
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#db-mysql-installation-__codelineno-3-6"></a>│<span class="w">   </span>├──<span class="w"> </span>data
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#db-mysql-installation-__codelineno-3-7"></a>│<span class="w">   </span>├──<span class="w"> </span>etc
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#db-mysql-installation-__codelineno-3-8"></a>│<span class="w">   </span>├──<span class="w"> </span>logs
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#db-mysql-installation-__codelineno-3-9"></a>│<span class="w">   </span>├──<span class="w"> </span>mysql-files
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#db-mysql-installation-__codelineno-3-10"></a>│<span class="w">   </span>├──<span class="w"> </span>run
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#db-mysql-installation-__codelineno-3-11"></a>│<span class="w">   </span>└──<span class="w"> </span>tmp
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#db-mysql-installation-__codelineno-3-12"></a>├──<span class="w"> </span><span class="m">3307</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#db-mysql-installation-__codelineno-3-13"></a>│<span class="w">   </span>├──<span class="w"> </span>bin
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#db-mysql-installation-__codelineno-3-14"></a>│<span class="w">   </span>├──<span class="w"> </span>data
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#db-mysql-installation-__codelineno-3-15"></a>│<span class="w">   </span>├──<span class="w"> </span>etc
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#db-mysql-installation-__codelineno-3-16"></a>│<span class="w">   </span>├──<span class="w"> </span>logs
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#db-mysql-installation-__codelineno-3-17"></a>│<span class="w">   </span>├──<span class="w"> </span>mysql-files
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#db-mysql-installation-__codelineno-3-18"></a>│<span class="w">   </span>├──<span class="w"> </span>run
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#db-mysql-installation-__codelineno-3-19"></a>│<span class="w">   </span>└──<span class="w"> </span>tmp
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#db-mysql-installation-__codelineno-3-20"></a>└──<span class="w"> </span><span class="m">3308</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#db-mysql-installation-__codelineno-3-21"></a><span class="w">    </span>├──<span class="w"> </span>bin
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#db-mysql-installation-__codelineno-3-22"></a><span class="w">    </span>├──<span class="w"> </span>data
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#db-mysql-installation-__codelineno-3-23"></a><span class="w">    </span>├──<span class="w"> </span>etc
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#db-mysql-installation-__codelineno-3-24"></a><span class="w">    </span>├──<span class="w"> </span>logs
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#db-mysql-installation-__codelineno-3-25"></a><span class="w">    </span>├──<span class="w"> </span>mysql-files
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#db-mysql-installation-__codelineno-3-26"></a><span class="w">    </span>├──<span class="w"> </span>run
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#db-mysql-installation-__codelineno-3-27"></a><span class="w">    </span>└──<span class="w"> </span>tmp
+</span></code></pre></div>
+<ol>
+<li>准备mysqld程序</li>
+</ol>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#db-mysql-installation-__codelineno-4-1"></a><span class="k">for</span><span class="w"> </span>port<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">3306</span><span class="w"> </span><span class="m">3307</span><span class="w"> </span><span class="m">3308</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#db-mysql-installation-__codelineno-4-2"></a><span class="w">  </span>cp<span class="w"> </span>-f<span class="w"> </span>/usr/sbin/mysqld<span class="w"> </span>/data/apps/mysql/<span class="nv">$port</span>/bin/
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#db-mysql-installation-__codelineno-4-3"></a><span class="k">done</span>
+</span></code></pre></div>
+<ol>
+<li>准备配置文件</li>
+</ol>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#db-mysql-installation-__codelineno-5-1"></a>cat<span class="w">  </span>&gt;<span class="w"> </span>/data/apps/mysql/3306/etc/my.cnf<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#db-mysql-installation-__codelineno-5-2"></a><span class="s">[client]</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#db-mysql-installation-__codelineno-5-3"></a><span class="s">socket = /data/apps/mysql/3306/run/mysql.sock</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#db-mysql-installation-__codelineno-5-4"></a><span class="s">default-character-set = utf8mb4</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#db-mysql-installation-__codelineno-5-5"></a><span class="s">[mysqld_safe]</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#db-mysql-installation-__codelineno-5-6"></a><span class="s">user = mysql</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#db-mysql-installation-__codelineno-5-7"></a><span class="s">nice = 0</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#db-mysql-installation-__codelineno-5-8"></a><span class="s">[mysqld]</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#db-mysql-installation-__codelineno-5-9"></a><span class="s">########## 基础与路径 ##########</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#db-mysql-installation-__codelineno-5-10"></a><span class="s">user = mysql</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#db-mysql-installation-__codelineno-5-11"></a><span class="s">datadir = /data/apps/mysql/3306/data</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#db-mysql-installation-__codelineno-5-12"></a><span class="s">socket = /data/apps/mysql/3306/run/mysql.sock</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#db-mysql-installation-__codelineno-5-13"></a><span class="s">log-error = /data/apps/mysql/3306/logs/mysqld.log</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#db-mysql-installation-__codelineno-5-14"></a><span class="s">pid-file = /data/apps/mysql/3306/run/mysqld.pid</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#db-mysql-installation-__codelineno-5-15"></a><span class="s">tmpdir = /data/apps/mysql/3306/tmp</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#db-mysql-installation-__codelineno-5-16"></a><span class="s">########## 字符集与排序规则 ##########</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#db-mysql-installation-__codelineno-5-17"></a><span class="s">character_set_server = utf8mb4</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#db-mysql-installation-__codelineno-5-18"></a><span class="s">collation_server = utf8mb4_0900_ai_ci</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#db-mysql-installation-__codelineno-5-19"></a><span class="s">explicit_defaults_for_timestamp = ON</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#db-mysql-installation-__codelineno-5-20"></a><span class="s">########## 时区与端口 ##########</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#db-mysql-installation-__codelineno-5-21"></a><span class="s">default-time-zone = '+8:00'</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#db-mysql-installation-__codelineno-5-22"></a><span class="s">port = 3306</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#db-mysql-installation-__codelineno-5-23"></a><span class="s">bind-address = 0.0.0.0</span>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#db-mysql-installation-__codelineno-5-24"></a><span class="s">########## 连接与线程 ##########</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#db-mysql-installation-__codelineno-5-25"></a><span class="s">max_connections = 500</span>
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#db-mysql-installation-__codelineno-5-26"></a><span class="s">max_connect_errors = 1000000</span>
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#db-mysql-installation-__codelineno-5-27"></a><span class="s">thread_cache_size = 64</span>
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#db-mysql-installation-__codelineno-5-28"></a><span class="s">open_files_limit = 65535</span>
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#db-mysql-installation-__codelineno-5-29"></a><span class="s">back_log = 1024</span>
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#db-mysql-installation-__codelineno-5-30"></a><span class="s">interactive_timeout = 600</span>
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#db-mysql-installation-__codelineno-5-31"></a><span class="s">wait_timeout = 600</span>
+</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#db-mysql-installation-__codelineno-5-32"></a><span class="s">lock_wait_timeout = 300</span>
+</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#db-mysql-installation-__codelineno-5-33"></a><span class="s">########## InnoDB 内存与缓冲池 ##########</span>
+</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#db-mysql-installation-__codelineno-5-34"></a><span class="s">innodb_buffer_pool_size = 10G</span>
+</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#db-mysql-installation-__codelineno-5-35"></a><span class="s">innodb_buffer_pool_instances = 8</span>
+</span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#db-mysql-installation-__codelineno-5-36"></a><span class="s">innodb_redo_log_capacity = 2G</span>
+</span><span id="__span-5-37"><a id="__codelineno-5-37" name="__codelineno-5-37" href="#db-mysql-installation-__codelineno-5-37"></a><span class="s">########## InnoDB 磁盘 I/O ##########</span>
+</span><span id="__span-5-38"><a id="__codelineno-5-38" name="__codelineno-5-38" href="#db-mysql-installation-__codelineno-5-38"></a><span class="s">innodb_io_capacity = 2000</span>
+</span><span id="__span-5-39"><a id="__codelineno-5-39" name="__codelineno-5-39" href="#db-mysql-installation-__codelineno-5-39"></a><span class="s">innodb_io_capacity_max = 4000</span>
+</span><span id="__span-5-40"><a id="__codelineno-5-40" name="__codelineno-5-40" href="#db-mysql-installation-__codelineno-5-40"></a><span class="s">innodb_flush_method = O_DIRECT</span>
+</span><span id="__span-5-41"><a id="__codelineno-5-41" name="__codelineno-5-41" href="#db-mysql-installation-__codelineno-5-41"></a><span class="s">innodb_flush_log_at_trx_commit = 1</span>
+</span><span id="__span-5-42"><a id="__codelineno-5-42" name="__codelineno-5-42" href="#db-mysql-installation-__codelineno-5-42"></a><span class="s">innodb_thread_concurrency = 0</span>
+</span><span id="__span-5-43"><a id="__codelineno-5-43" name="__codelineno-5-43" href="#db-mysql-installation-__codelineno-5-43"></a><span class="s">innodb_file_per_table = ON</span>
+</span><span id="__span-5-44"><a id="__codelineno-5-44" name="__codelineno-5-44" href="#db-mysql-installation-__codelineno-5-44"></a><span class="s">innodb_temp_data_file_path = ibtmp1:12M:autoextend:max:5G</span>
+</span><span id="__span-5-45"><a id="__codelineno-5-45" name="__codelineno-5-45" href="#db-mysql-installation-__codelineno-5-45"></a><span class="s">########## 会话级缓冲区 ##########</span>
+</span><span id="__span-5-46"><a id="__codelineno-5-46" name="__codelineno-5-46" href="#db-mysql-installation-__codelineno-5-46"></a><span class="s">sort_buffer_size = 4M</span>
+</span><span id="__span-5-47"><a id="__codelineno-5-47" name="__codelineno-5-47" href="#db-mysql-installation-__codelineno-5-47"></a><span class="s">join_buffer_size = 4M</span>
+</span><span id="__span-5-48"><a id="__codelineno-5-48" name="__codelineno-5-48" href="#db-mysql-installation-__codelineno-5-48"></a><span class="s">read_buffer_size = 2M</span>
+</span><span id="__span-5-49"><a id="__codelineno-5-49" name="__codelineno-5-49" href="#db-mysql-installation-__codelineno-5-49"></a><span class="s">read_rnd_buffer_size = 4M</span>
+</span><span id="__span-5-50"><a id="__codelineno-5-50" name="__codelineno-5-50" href="#db-mysql-installation-__codelineno-5-50"></a><span class="s">tmp_table_size = 64M</span>
+</span><span id="__span-5-51"><a id="__codelineno-5-51" name="__codelineno-5-51" href="#db-mysql-installation-__codelineno-5-51"></a><span class="s">max_heap_table_size = 64M</span>
+</span><span id="__span-5-52"><a id="__codelineno-5-52" name="__codelineno-5-52" href="#db-mysql-installation-__codelineno-5-52"></a><span class="s">########## 表缓存 ##########</span>
+</span><span id="__span-5-53"><a id="__codelineno-5-53" name="__codelineno-5-53" href="#db-mysql-installation-__codelineno-5-53"></a><span class="s">table_open_cache = 4000</span>
+</span><span id="__span-5-54"><a id="__codelineno-5-54" name="__codelineno-5-54" href="#db-mysql-installation-__codelineno-5-54"></a><span class="s">table_definition_cache = 2000</span>
+</span><span id="__span-5-55"><a id="__codelineno-5-55" name="__codelineno-5-55" href="#db-mysql-installation-__codelineno-5-55"></a><span class="s">table_open_cache_instances = 16</span>
+</span><span id="__span-5-56"><a id="__codelineno-5-56" name="__codelineno-5-56" href="#db-mysql-installation-__codelineno-5-56"></a><span class="s">########## 事务隔离与 SQL 模式 ##########</span>
+</span><span id="__span-5-57"><a id="__codelineno-5-57" name="__codelineno-5-57" href="#db-mysql-installation-__codelineno-5-57"></a><span class="s">transaction_isolation = READ-COMMITTED</span>
+</span><span id="__span-5-58"><a id="__codelineno-5-58" name="__codelineno-5-58" href="#db-mysql-installation-__codelineno-5-58"></a><span class="s">sql_mode = STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION</span>
+</span><span id="__span-5-59"><a id="__codelineno-5-59" name="__codelineno-5-59" href="#db-mysql-installation-__codelineno-5-59"></a><span class="s">########## 日志与诊断 ##########</span>
+</span><span id="__span-5-60"><a id="__codelineno-5-60" name="__codelineno-5-60" href="#db-mysql-installation-__codelineno-5-60"></a><span class="s">log_error_verbosity = 3</span>
+</span><span id="__span-5-61"><a id="__codelineno-5-61" name="__codelineno-5-61" href="#db-mysql-installation-__codelineno-5-61"></a><span class="s">innodb_print_ddl_logs = ON</span>
+</span><span id="__span-5-62"><a id="__codelineno-5-62" name="__codelineno-5-62" href="#db-mysql-installation-__codelineno-5-62"></a><span class="s">performance_schema = ON</span>
+</span><span id="__span-5-63"><a id="__codelineno-5-63" name="__codelineno-5-63" href="#db-mysql-installation-__codelineno-5-63"></a><span class="s">########## 慢查询日志 ##########</span>
+</span><span id="__span-5-64"><a id="__codelineno-5-64" name="__codelineno-5-64" href="#db-mysql-installation-__codelineno-5-64"></a><span class="s">slow_query_log = ON</span>
+</span><span id="__span-5-65"><a id="__codelineno-5-65" name="__codelineno-5-65" href="#db-mysql-installation-__codelineno-5-65"></a><span class="s">slow_query_log_file = /data/apps/mysql/3306/logs/mysql-slow.log</span>
+</span><span id="__span-5-66"><a id="__codelineno-5-66" name="__codelineno-5-66" href="#db-mysql-installation-__codelineno-5-66"></a><span class="s">long_query_time = 1</span>
+</span><span id="__span-5-67"><a id="__codelineno-5-67" name="__codelineno-5-67" href="#db-mysql-installation-__codelineno-5-67"></a><span class="s">log_queries_not_using_indexes = ON</span>
+</span><span id="__span-5-68"><a id="__codelineno-5-68" name="__codelineno-5-68" href="#db-mysql-installation-__codelineno-5-68"></a><span class="s">########## 安全相关 ##########</span>
+</span><span id="__span-5-69"><a id="__codelineno-5-69" name="__codelineno-5-69" href="#db-mysql-installation-__codelineno-5-69"></a><span class="s">local_infile = OFF</span>
+</span><span id="__span-5-70"><a id="__codelineno-5-70" name="__codelineno-5-70" href="#db-mysql-installation-__codelineno-5-70"></a><span class="s">skip_name_resolve = ON</span>
+</span><span id="__span-5-71"><a id="__codelineno-5-71" name="__codelineno-5-71" href="#db-mysql-installation-__codelineno-5-71"></a><span class="s">secure_file_priv = /data/apps/mysql/3306/mysql-files</span>
+</span><span id="__span-5-72"><a id="__codelineno-5-72" name="__codelineno-5-72" href="#db-mysql-installation-__codelineno-5-72"></a><span class="s"># mysqlx = 0</span>
+</span><span id="__span-5-73"><a id="__codelineno-5-73" name="__codelineno-5-73" href="#db-mysql-installation-__codelineno-5-73"></a><span class="s">########## Binlog 配置（新增） ##########</span>
+</span><span id="__span-5-74"><a id="__codelineno-5-74" name="__codelineno-5-74" href="#db-mysql-installation-__codelineno-5-74"></a><span class="s">log-bin = /data/apps/mysql/3306/logs/mysql-bin</span>
+</span><span id="__span-5-75"><a id="__codelineno-5-75" name="__codelineno-5-75" href="#db-mysql-installation-__codelineno-5-75"></a><span class="s">server-id = 3306</span>
+</span><span id="__span-5-76"><a id="__codelineno-5-76" name="__codelineno-5-76" href="#db-mysql-installation-__codelineno-5-76"></a><span class="s">binlog_format = ROW</span>
+</span><span id="__span-5-77"><a id="__codelineno-5-77" name="__codelineno-5-77" href="#db-mysql-installation-__codelineno-5-77"></a><span class="s">binlog_row_image = FULL</span>
+</span><span id="__span-5-78"><a id="__codelineno-5-78" name="__codelineno-5-78" href="#db-mysql-installation-__codelineno-5-78"></a><span class="s">binlog_expire_logs_seconds = 604800</span>
+</span><span id="__span-5-79"><a id="__codelineno-5-79" name="__codelineno-5-79" href="#db-mysql-installation-__codelineno-5-79"></a><span class="s">max_binlog_size = 500M</span>
+</span><span id="__span-5-80"><a id="__codelineno-5-80" name="__codelineno-5-80" href="#db-mysql-installation-__codelineno-5-80"></a><span class="s">sync_binlog = 1</span>
+</span><span id="__span-5-81"><a id="__codelineno-5-81" name="__codelineno-5-81" href="#db-mysql-installation-__codelineno-5-81"></a><span class="s">EOF</span>
+</span><span id="__span-5-82"><a id="__codelineno-5-82" name="__codelineno-5-82" href="#db-mysql-installation-__codelineno-5-82"></a>sed<span class="w"> </span><span class="s1">'s@3306@3307@g'</span><span class="w"> </span>/data/apps/mysql/3306/etc/my.cnf<span class="w"> </span>&gt;<span class="w"> </span>/data/apps/mysql/3307/etc/my.cnf
+</span><span id="__span-5-83"><a id="__codelineno-5-83" name="__codelineno-5-83" href="#db-mysql-installation-__codelineno-5-83"></a>sed<span class="w"> </span><span class="s1">'s@3306@3308@g'</span><span class="w"> </span>/data/apps/mysql/3306/etc/my.cnf<span class="w"> </span>&gt;<span class="w"> </span>/data/apps/mysql/3308/etc/my.cnf
+</span></code></pre></div>
+<ol>
+<li>初始化数据库文件</li>
+</ol>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#db-mysql-installation-__codelineno-6-1"></a>chown<span class="w"> </span>-R<span class="w"> </span>mysql:mysql<span class="w">  </span>/data/apps/mysql/
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#db-mysql-installation-__codelineno-6-2"></a><span class="k">for</span><span class="w"> </span>port<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">3306</span><span class="w"> </span><span class="m">3307</span><span class="w"> </span><span class="m">3308</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#db-mysql-installation-__codelineno-6-3"></a><span class="w">  </span>mysqld<span class="w"> </span>--defaults-file<span class="o">=</span>/data/apps/mysql/<span class="nv">$port</span>/etc/my.cnf<span class="w"> </span>--initialize<span class="w"> </span>--user<span class="o">=</span>mysql<span class="w"> </span>--datadir<span class="o">=</span>/data/apps/mysql/<span class="nv">$port</span>/data
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#db-mysql-installation-__codelineno-6-4"></a><span class="k">done</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#db-mysql-installation-__codelineno-6-5"></a><span class="k">for</span><span class="w"> </span>port<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">3306</span><span class="w"> </span><span class="m">3307</span><span class="w"> </span><span class="m">3308</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#db-mysql-installation-__codelineno-6-6"></a><span class="w">  </span>grep<span class="w"> </span><span class="s1">'temporary password'</span><span class="w"> </span>/data/apps/mysql/<span class="nv">$port</span>/logs/mysqld.log
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#db-mysql-installation-__codelineno-6-7"></a><span class="k">done</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#db-mysql-installation-__codelineno-6-8"></a><span class="m">2026</span>-09-16T12:46:09.501863Z<span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="o">[</span>Note<span class="o">]</span><span class="w"> </span><span class="o">[</span>MY-010454<span class="o">]</span><span class="w"> </span><span class="o">[</span>Server<span class="o">]</span><span class="w"> </span>A<span class="w"> </span>temporary<span class="w"> </span>password<span class="w"> </span>is<span class="w"> </span>generated<span class="w"> </span><span class="k">for</span><span class="w"> </span>root@localhost:<span class="w"> </span>gGHussWhV3&lt;q
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#db-mysql-installation-__codelineno-6-9"></a><span class="m">2026</span>-09-16T12:46:12.918990Z<span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="o">[</span>Note<span class="o">]</span><span class="w"> </span><span class="o">[</span>MY-010454<span class="o">]</span><span class="w"> </span><span class="o">[</span>Server<span class="o">]</span><span class="w"> </span>A<span class="w"> </span>temporary<span class="w"> </span>password<span class="w"> </span>is<span class="w"> </span>generated<span class="w"> </span><span class="k">for</span><span class="w"> </span>root@localhost:<span class="w"> </span>XEua*yuEk4<span class="o">==</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#db-mysql-installation-__codelineno-6-10"></a><span class="m">2026</span>-09-16T12:46:16.429273Z<span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="o">[</span>Note<span class="o">]</span><span class="w"> </span><span class="o">[</span>MY-010454<span class="o">]</span><span class="w"> </span><span class="o">[</span>Server<span class="o">]</span><span class="w"> </span>A<span class="w"> </span>temporary<span class="w"> </span>password<span class="w"> </span>is<span class="w"> </span>generated<span class="w"> </span><span class="k">for</span><span class="w"> </span>root@localhost:<span class="w"> </span><span class="c1">#jVtHLnhR92d</span>
+</span></code></pre></div>
+<ol>
+<li>提供启动文件</li>
+</ol>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#db-mysql-installation-__codelineno-7-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>/etc/systemd/system/mysqld3306.service<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#db-mysql-installation-__codelineno-7-2"></a><span class="s">[Unit]</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#db-mysql-installation-__codelineno-7-3"></a><span class="s">Description=MySQL 8.4 database server (custom data paths)</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#db-mysql-installation-__codelineno-7-4"></a><span class="s">Documentation=man:mysqld(8)</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#db-mysql-installation-__codelineno-7-5"></a><span class="s">Documentation=http://dev.mysql.com/doc/refman/en/using-systemd.html</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#db-mysql-installation-__codelineno-7-6"></a><span class="s">After=network.target</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#db-mysql-installation-__codelineno-7-7"></a><span class="s">After=syslog.target</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#db-mysql-installation-__codelineno-7-8"></a><span class="s">[Install]</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#db-mysql-installation-__codelineno-7-9"></a><span class="s">WantedBy=multi-user.target</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#db-mysql-installation-__codelineno-7-10"></a><span class="s">[Service]</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#db-mysql-installation-__codelineno-7-11"></a><span class="s">User=mysql</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#db-mysql-installation-__codelineno-7-12"></a><span class="s">Group=mysql</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#db-mysql-installation-__codelineno-7-13"></a><span class="s"># 指定使用自定义的配置文件</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#db-mysql-installation-__codelineno-7-14"></a><span class="s">ExecStart=/data/apps/mysql/3306/bin/mysqld --defaults-file=/data/apps/mysql/3306/etc/my.cnf --user=mysql</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#db-mysql-installation-__codelineno-7-15"></a><span class="s">PIDFile=/data/apps/mysql/3306/run/mysqld.pid</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#db-mysql-installation-__codelineno-7-16"></a><span class="s"># 服务启动类型，对于 MySQL 8.4 官方推荐使用 notify</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#db-mysql-installation-__codelineno-7-17"></a><span class="s">Type=notify</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#db-mysql-installation-__codelineno-7-18"></a><span class="s"># 如果启动失败或异常退出，自动重启</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#db-mysql-installation-__codelineno-7-19"></a><span class="s">Restart=on-failure</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#db-mysql-installation-__codelineno-7-20"></a><span class="s">RestartPreventExitStatus=1</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#db-mysql-installation-__codelineno-7-21"></a><span class="s"># 文件描述符限制，与你的 my.cnf 中 open_files_limit 保持一致</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#db-mysql-installation-__codelineno-7-22"></a><span class="s">LimitNOFILE=65535</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#db-mysql-installation-__codelineno-7-23"></a><span class="s"># 给足启动和关闭的时间</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#db-mysql-installation-__codelineno-7-24"></a><span class="s">TimeoutSec=300</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#db-mysql-installation-__codelineno-7-25"></a><span class="s"># 避免临时文件放在 /tmp</span>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#db-mysql-installation-__codelineno-7-26"></a><span class="s">PrivateTmp=true</span>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#db-mysql-installation-__codelineno-7-27"></a><span class="s">[Install]</span>
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#db-mysql-installation-__codelineno-7-28"></a><span class="s">WantedBy=multi-user.target</span>
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#db-mysql-installation-__codelineno-7-29"></a><span class="s">EOF</span>
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#db-mysql-installation-__codelineno-7-30"></a>
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#db-mysql-installation-__codelineno-7-31"></a>sed<span class="w"> </span><span class="s2">"s@3306@3307@g"</span><span class="w"> </span>/etc/systemd/system/mysqld3306.service<span class="w"> </span>&gt;<span class="w"> </span>/etc/systemd/system/mysqld3307.service
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#db-mysql-installation-__codelineno-7-32"></a>sed<span class="w"> </span><span class="s2">"s@3306@3308@g"</span><span class="w"> </span>/etc/systemd/system/mysqld3306.service<span class="w"> </span>&gt;<span class="w"> </span>/etc/systemd/system/mysqld3308.service
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#db-mysql-installation-__codelineno-7-33"></a>systemctl<span class="w">  </span>daemon-reload<span class="w"> </span>
+</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#db-mysql-installation-__codelineno-7-34"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>mysqld3306<span class="w"> </span>--now
+</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#db-mysql-installation-__codelineno-7-35"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>mysqld3307<span class="w"> </span>--now
+</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36" href="#db-mysql-installation-__codelineno-7-36"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>mysqld3308<span class="w"> </span>--now
+</span></code></pre></div></section></section>
+                    <section class='print-page md-section' id='section-3-2' heading-number='3.2'>
+                        <h1>PostgreSQL<a class='headerlink' href='#section-3-2' title='Permanent link'></a>
+                        </h1>
+                    </section></section>
+                    <section class='print-page md-section' id='section-4' heading-number='4'>
+                        <h1>网络<a class='headerlink' href='#section-4' title='Permanent link'></a>
+                        </h1>
+                    </section>
+                    <section class='print-page md-section' id='section-5' heading-number='5'>
+                        <h1>镜像源<a class='headerlink' href='#section-5' title='Permanent link'></a>
+                        </h1>
+                    <section class="print-page" id="huawei-rocky-linux" heading-number="5.1"><h1 id="huawei-rocky-linux-rocky-linux">Rocky Linux</h1>
+<details class="note">
+<summary><a href="https://mirrors.huaweicloud.com/rockylinux/">华为云镜像源</a></summary>
+<p><strong>1. 备份原有配置</strong></p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#huawei-rocky-linux-__codelineno-0-1"></a>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/yum.repos.d/backup
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#huawei-rocky-linux-__codelineno-0-2"></a>sudo<span class="w"> </span>mv<span class="w"> </span>/etc/yum.repos.d/rocky*.repo<span class="w"> </span>/etc/yum.repos.d/backup/
+</span></code></pre></div>
+<p><strong>2. 创建华为云 repo 文件</strong></p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#huawei-rocky-linux-__codelineno-1-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>/etc/yum.repos.d/huawei-rocky.repo<span class="w"> </span><span class="s">&lt;&lt; 'EOF'</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#huawei-rocky-linux-__codelineno-1-2"></a><span class="s">[baseos]</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#huawei-rocky-linux-__codelineno-1-3"></a><span class="s">name=Rocky Linux $releasever BaseOS - Huawei Cloud</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#huawei-rocky-linux-__codelineno-1-4"></a><span class="s">baseurl=https://mirrors.huaweicloud.com/rockylinux/$releasever/BaseOS/$basearch/os/</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#huawei-rocky-linux-__codelineno-1-5"></a><span class="s">gpgcheck=1</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#huawei-rocky-linux-__codelineno-1-6"></a><span class="s">gpgkey=https://mirrors.huaweicloud.com/rockylinux/RPM-GPG-KEY-Rocky-$releasever</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#huawei-rocky-linux-__codelineno-1-7"></a><span class="s">enabled=1</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#huawei-rocky-linux-__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#huawei-rocky-linux-__codelineno-1-9"></a><span class="s">[appstream]</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#huawei-rocky-linux-__codelineno-1-10"></a><span class="s">name=Rocky Linux $releasever AppStream - Huawei Cloud</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#huawei-rocky-linux-__codelineno-1-11"></a><span class="s">baseurl=https://mirrors.huaweicloud.com/rockylinux/$releasever/AppStream/$basearch/os/</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#huawei-rocky-linux-__codelineno-1-12"></a><span class="s">gpgcheck=1</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#huawei-rocky-linux-__codelineno-1-13"></a><span class="s">gpgkey=https://mirrors.huaweicloud.com/rockylinux/RPM-GPG-KEY-Rocky-$releasever</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#huawei-rocky-linux-__codelineno-1-14"></a><span class="s">enabled=1</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#huawei-rocky-linux-__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#huawei-rocky-linux-__codelineno-1-16"></a><span class="s">[extras]</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#huawei-rocky-linux-__codelineno-1-17"></a><span class="s">name=Rocky Linux $releasever Extras - Huawei Cloud</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#huawei-rocky-linux-__codelineno-1-18"></a><span class="s">baseurl=https://mirrors.huaweicloud.com/rockylinux/$releasever/extras/$basearch/os/</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#huawei-rocky-linux-__codelineno-1-19"></a><span class="s">gpgcheck=1</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#huawei-rocky-linux-__codelineno-1-20"></a><span class="s">gpgkey=https://mirrors.huaweicloud.com/rockylinux/RPM-GPG-KEY-Rocky-$releasever</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#huawei-rocky-linux-__codelineno-1-21"></a><span class="s">enabled=1</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#huawei-rocky-linux-__codelineno-1-22"></a><span class="s">EOF</span>
+</span></code></pre></div>
+<p><strong>3. 刷新缓存并生效</strong></p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#huawei-rocky-linux-__codelineno-2-1"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>clean<span class="w"> </span>all
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#huawei-rocky-linux-__codelineno-2-2"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>makecache
+</span></code></pre></div>
+<p><strong>4. 安装epel源</strong></p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#huawei-rocky-linux-__codelineno-3-1"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>epel-release
+</span></code></pre></div>
+<details class="tip annotate" open="open">
+<summary>小技巧</summary>
+<p>如果你是在华为云 ECS 内网环境，可以把 baseurl 中的 mirrors.huaweicloud.com 替换为内网域名 mirrors.myhuaweicloud.com，速度更快且不消耗公网流量</p>
+</details>
+</details>
+<details class="note">
+<summary><a href="https://mirrors.huaweicloud.com/mirrorDetail/5ea14d84b58d16ef329c5c13?mirrorName=docker-ce&amp;catalog=docker">Docker-CE</a></summary>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#huawei-rocky-linux-__codelineno-4-1"></a><span class="c1"># 配置代理</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#huawei-rocky-linux-__codelineno-4-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">https_proxy</span><span class="o">=</span>http://172.16.143.1:7897<span class="w"> </span><span class="nv">http_proxy</span><span class="o">=</span>http://172.16.143.1:7897<span class="w"> </span><span class="nv">all_proxy</span><span class="o">=</span>socks5://172.16.143.1:7897
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#huawei-rocky-linux-__codelineno-4-3"></a>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/systemd/system/docker.service.d
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#huawei-rocky-linux-__codelineno-4-4"></a>sudo<span class="w"> </span>touch<span class="w"> </span>/etc/systemd/system/docker.service.d/proxy.conf
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#huawei-rocky-linux-__codelineno-4-5"></a>cat<span class="w">  </span>&gt;<span class="w"> </span>/etc/systemd/system/docker.service.d/proxy.conf<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#huawei-rocky-linux-__codelineno-4-6"></a><span class="s">[Service]</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#huawei-rocky-linux-__codelineno-4-7"></a><span class="s">Environment="HTTP_PROXY=$https_proxy/"</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#huawei-rocky-linux-__codelineno-4-8"></a><span class="s">Environment="HTTPS_PROXY=$https_proxy/"</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#huawei-rocky-linux-__codelineno-4-9"></a><span class="s">Environment="NO_PROXY=localhost,127.0.0.1,.devops.io"</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#huawei-rocky-linux-__codelineno-4-10"></a><span class="s">EOF</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#huawei-rocky-linux-__codelineno-4-11"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>docker<span class="w"> </span>--now
+</span></code></pre></div>
+</details></section></section></div><style>.print-site-enumerate-headings #index > h1:before { content: '1 ' }
+
+                .print-site-enumerate-headings #index h2:before { content: '1.' counter(counter-index-2) ' ' }
+                .print-site-enumerate-headings #index h2 {  counter-reset: counter-index-3 ;  counter-increment: counter-index-2 }
+            
+                .print-site-enumerate-headings #index h3:before { content: '1.' counter(counter-index-2) '.' counter(counter-index-3) ' ' }
+                .print-site-enumerate-headings #index h3 {  counter-increment: counter-index-3 }
+            
+.print-site-enumerate-headings #section-2 > h1:before { content: '2 ' }
+.print-site-enumerate-headings #section-3 > h1:before { content: '3 ' }
+.print-site-enumerate-headings #section-3-1 > h1:before { content: '3.1 ' }
+.print-site-enumerate-headings #db-mysql-installation > h1:before { content: '3.1.1 ' }
+
+.print-site-enumerate-headings #section-3-2 > h1:before { content: '3.2 ' }
+.print-site-enumerate-headings #section-4 > h1:before { content: '4 ' }
+.print-site-enumerate-headings #section-5 > h1:before { content: '5 ' }
+.print-site-enumerate-headings #huawei-rocky-linux > h1:before { content: '5.1 ' }
+
+                .print-site-enumerate-headings #huawei-rocky-linux h2:before { content: '5.1.' counter(counter-huawei-rocky-linux-2) ' ' }
+                .print-site-enumerate-headings #huawei-rocky-linux h2 {  counter-increment: counter-huawei-rocky-linux-2 }
+            </style>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "/", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.top", "navigation.indexes", "navigation.sections", "navigation.expand", "content.code.copy", "content.code.select", "content.code.annotate", "toc.integrate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../js/print-site.js"></script>
+      
+    
+  </body>
+</html>
