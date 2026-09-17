@@ -14,7 +14,7 @@
         <link rel="prev" href="../..">
       
       
-        <link rel="next" href="../../huawei/rocky-linux/">
+        <link rel="next" href="../mysql-backup-and-recovery/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Installation - 运维手册</title>
+        <title>安装手册 - 运维手册</title>
       
     
     
@@ -104,7 +104,7 @@
 
   
 
-<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="/" title="运维手册" class="md-header__button md-logo" aria-label="运维手册" data-md-component="logo">
       
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Installation
+              安装手册
             
           </span>
         </div>
@@ -156,11 +156,18 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
       
     </form>
     <div class="md-search__output">
@@ -180,162 +187,13 @@
     
   </nav>
   
-    
-      
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
-        
-  
-  
-    
-  
-  首页
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../ops/linux.md" class="md-tabs__link">
-          
-  
-  
-    
-  
-  系统运维
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
-          
-  
-  
-    
-  
-  数据库
-
-        </a>
-      </li>
-    
-  
-
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../network/rsync.md" class="md-tabs__link">
-          
-  
-  
-    
-  
-  网络
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../huawei/rocky-linux/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  镜像源
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../about.md" class="md-tabs__link">
-        
-  
-  
-    
-  
-  关于
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-    
-  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -349,12 +207,8 @@
                     
 
 
-  
 
-
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="/" title="运维手册" class="md-nav__button md-logo" aria-label="运维手册" data-md-component="logo">
       
@@ -411,19 +265,12 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -566,23 +413,15 @@
     
     
     
-      
-        
-        
-      
-      
-        
-      
     
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -624,26 +463,22 @@
       
         
       
-    
-    
-    
-      
-      
         
-          
-          
+      
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
             
   
   
@@ -693,7 +528,7 @@
   <span class="md-ellipsis">
     
   
-    Installation
+    安装手册
   
 
     
@@ -711,7 +546,7 @@
   <span class="md-ellipsis">
     
   
-    Installation
+    安装手册
   
 
     
@@ -758,10 +593,77 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#mysql_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MySQL主从复制
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mysql-logs.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据库日志
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mysql-backup-and-recovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    备份与恢复
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -789,25 +691,15 @@
     
     
     
-      
-      
-        
-          
-          
-        
-      
     
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
         
           
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
             
   
   
@@ -921,19 +813,12 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -1014,19 +899,12 @@
     
     
     
-      
-      
-        
-      
-    
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -1127,6 +1005,65 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="本页目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      本页目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MySQL服务安装
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mysql_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MySQL多实例安装
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mysql_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MySQL主从复制
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           
             <div class="md-content" data-md-component="content">
@@ -1137,12 +1074,21 @@
 
 
 
+  <h1>安装手册</h1>
+
 <h2 id="mysql">MySQL服务安装</h2>
-<p>在 Rocky Linux 10上安装 MySQL Server 8.4.11</p>
-<hr />
+<div class="admonition info">
+<p class="admonition-title">在 Rocky Linux 10上安装 MySQL Server 8.4.11</p>
+<ul>
+<li>OS: Rocky Linux release 10.2 (Red Quartz)</li>
+<li>MySQL: 8.4.11</li>
+</ul>
+</div>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Yum</label><label for="__tabbed_1_2">Generic Binaries</label><label for="__tabbed_1_3">Container</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
+<details class="example">
+<summary>使用Yum源安装</summary>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>wget<span class="w"> </span>https://dev.mysql.com/get/mysql84-community-release-el10-3.noarch.rpm
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>mysql84-community-release-el10-3.noarch.rpm
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># 禁用 9.7 相关的源</span>
@@ -1182,8 +1128,11 @@
 </span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>--<span class="w"> </span>现在可以设置简单密码了
 </span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>ALTER<span class="w"> </span>USER<span class="w"> </span><span class="s1">'root'</span>@<span class="s1">'localhost'</span><span class="w"> </span>IDENTIFIED<span class="w"> </span>BY<span class="w"> </span><span class="s1">'rootPwd'</span><span class="p">;</span>
 </span></code></pre></div>
+</details>
 </div>
 <div class="tabbed-block">
+<details class="example">
+<summary>通用二进制安装</summary>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># 安装依赖包</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>libaio<span class="w"> </span>ncurses-compat-libs
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># 准备用户</span>
@@ -1332,8 +1281,11 @@
 </span><span id="__span-1-146"><a id="__codelineno-1-146" name="__codelineno-1-146" href="#__codelineno-1-146"></a>--<span class="w"> </span>现在可以设置简单密码了
 </span><span id="__span-1-147"><a id="__codelineno-1-147" name="__codelineno-1-147" href="#__codelineno-1-147"></a>ALTER<span class="w"> </span>USER<span class="w"> </span><span class="s1">'root'</span>@<span class="s1">'localhost'</span><span class="w"> </span>IDENTIFIED<span class="w"> </span>BY<span class="w"> </span><span class="s1">'rootPwd'</span><span class="p">;</span>
 </span></code></pre></div>
+</details>
 </div>
 <div class="tabbed-block">
+<details class="example">
+<summary>容器安装</summary>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mkdir<span class="w"> </span>-pv<span class="w">  </span>/data/apps/mysql<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/data/apps/mysql
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>./mysql_data<span class="w"> </span>./mysql_conf<span class="w"> </span>./init
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>chmod<span class="w"> </span><span class="m">777</span><span class="w"> </span>./mysql_data<span class="w">  </span><span class="c1"># 首次启动必需，容器内 mysql 用户 UID 通常为 999</span>
@@ -1370,14 +1322,16 @@
 </span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="s">EOF</span>
 </span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
 </span></code></pre></div>
+</details>
 </div>
 </div>
 </div>
-<h1 id="mysql_1">MySQL多实例安装</h1>
-<p>使用二进制的方式，安装在一台服务器上安装多个MySQL多实例，能有效利用服务器资源。</p>
-<ol>
-<li>准备实例目录</li>
-</ol>
+<h2 id="mysql_1">MySQL多实例安装</h2>
+<div class="admonition info">
+<p class="admonition-title">使用二进制的方式，安装在一台服务器上安装多个MySQL多实例，能有效利用服务器资源。</p>
+</div>
+<details class="example">
+<summary>1. 准备实例目录</summary>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>mkdir<span class="w"> </span>-pv<span class="w">  </span>/data/apps/mysql/<span class="o">{</span><span class="m">3306</span>,3307,3308<span class="o">}</span>/<span class="o">{</span>data,etc,bin,logs,run,mysql-files,tmp<span class="o">}</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>tree<span class="w"> </span>/data/apps/mysql/
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>/data/apps/mysql/
@@ -1406,16 +1360,16 @@
 </span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">    </span>├──<span class="w"> </span>run
 </span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">    </span>└──<span class="w"> </span>tmp
 </span></code></pre></div>
-<ol>
-<li>准备mysqld程序</li>
-</ol>
+</details>
+<details class="example">
+<summary>2. 准备mysqld程序</summary>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">for</span><span class="w"> </span>port<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">3306</span><span class="w"> </span><span class="m">3307</span><span class="w"> </span><span class="m">3308</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>cp<span class="w"> </span>-f<span class="w"> </span>/usr/sbin/mysqld<span class="w"> </span>/data/apps/mysql/<span class="nv">$port</span>/bin/
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">done</span>
 </span></code></pre></div>
-<ol>
-<li>准备配置文件</li>
-</ol>
+</details>
+<details class="example">
+<summary>3. 准备配置文件</summary>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cat<span class="w">  </span>&gt;<span class="w"> </span>/data/apps/mysql/3306/etc/my.cnf<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="s">[client]</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="s">socket = /data/apps/mysql/3306/run/mysql.sock</span>
@@ -1500,9 +1454,9 @@
 </span><span id="__span-5-82"><a id="__codelineno-5-82" name="__codelineno-5-82" href="#__codelineno-5-82"></a>sed<span class="w"> </span><span class="s1">'s@3306@3307@g'</span><span class="w"> </span>/data/apps/mysql/3306/etc/my.cnf<span class="w"> </span>&gt;<span class="w"> </span>/data/apps/mysql/3307/etc/my.cnf
 </span><span id="__span-5-83"><a id="__codelineno-5-83" name="__codelineno-5-83" href="#__codelineno-5-83"></a>sed<span class="w"> </span><span class="s1">'s@3306@3308@g'</span><span class="w"> </span>/data/apps/mysql/3306/etc/my.cnf<span class="w"> </span>&gt;<span class="w"> </span>/data/apps/mysql/3308/etc/my.cnf
 </span></code></pre></div>
-<ol>
-<li>初始化数据库文件</li>
-</ol>
+</details>
+<details class="example">
+<summary>4. 初始化数据库文件</summary>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>chown<span class="w"> </span>-R<span class="w"> </span>mysql:mysql<span class="w">  </span>/data/apps/mysql/
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">for</span><span class="w"> </span>port<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">3306</span><span class="w"> </span><span class="m">3307</span><span class="w"> </span><span class="m">3308</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span>mysqld<span class="w"> </span>--defaults-file<span class="o">=</span>/data/apps/mysql/<span class="nv">$port</span>/etc/my.cnf<span class="w"> </span>--initialize<span class="w"> </span>--user<span class="o">=</span>mysql<span class="w"> </span>--datadir<span class="o">=</span>/data/apps/mysql/<span class="nv">$port</span>/data
@@ -1514,9 +1468,9 @@
 </span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="m">2026</span>-09-16T12:46:12.918990Z<span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="o">[</span>Note<span class="o">]</span><span class="w"> </span><span class="o">[</span>MY-010454<span class="o">]</span><span class="w"> </span><span class="o">[</span>Server<span class="o">]</span><span class="w"> </span>A<span class="w"> </span>temporary<span class="w"> </span>password<span class="w"> </span>is<span class="w"> </span>generated<span class="w"> </span><span class="k">for</span><span class="w"> </span>root@localhost:<span class="w"> </span>XEua*yuEk4<span class="o">==</span>
 </span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="m">2026</span>-09-16T12:46:16.429273Z<span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="o">[</span>Note<span class="o">]</span><span class="w"> </span><span class="o">[</span>MY-010454<span class="o">]</span><span class="w"> </span><span class="o">[</span>Server<span class="o">]</span><span class="w"> </span>A<span class="w"> </span>temporary<span class="w"> </span>password<span class="w"> </span>is<span class="w"> </span>generated<span class="w"> </span><span class="k">for</span><span class="w"> </span>root@localhost:<span class="w"> </span><span class="c1">#jVtHLnhR92d</span>
 </span></code></pre></div>
-<ol>
-<li>提供启动文件</li>
-</ol>
+</details>
+<details class="example">
+<summary>5. 提供启动文件</summary>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>/etc/systemd/system/mysqld3306.service<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="s">[Unit]</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="s">Description=MySQL 8.4 database server (custom data paths)</span>
@@ -1554,6 +1508,137 @@
 </span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>mysqld3307<span class="w"> </span>--now
 </span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>mysqld3308<span class="w"> </span>--now
 </span></code></pre></div>
+</details>
+<h2 id="mysql_2">MySQL主从复制</h2>
+<div class="admonition 主从复制原理">
+<p class="admonition-title">主从复制原理</p>
+<blockquote>
+<p><strong>主库把变更写进 binlog，从库拉过来重放一遍</strong></p>
+</blockquote>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w">        </span>主库<span class="w"> </span><span class="o">(</span>Master<span class="o">)</span><span class="w">                        </span>从库<span class="w"> </span><span class="o">(</span>Slave/Replica<span class="o">)</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span>┌─────────────────┐<span class="w">                  </span>┌─────────────────────┐
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span>│<span class="w">  </span>客户端写入<span class="w">      </span>│<span class="w">                  </span>│<span class="w">                     </span>│
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span>│<span class="w">      </span>↓<span class="w">          </span>│<span class="w">                  </span>│<span class="w">   </span>SQL<span class="w"> </span>Thread<span class="w">        </span>│
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span>│<span class="w">  </span>Binlog<span class="w"> </span><span class="o">(</span>二进制日志<span class="o">)</span><span class="w"> </span>│<span class="w"> </span>──网络传输──→<span class="w"> </span>│<span class="w">      </span>↑<span class="w">              </span>│
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span>│<span class="w">      </span>↑<span class="w">          </span>│<span class="w">                  </span>│<span class="w">  </span>Relay<span class="w"> </span>Log<span class="w"> </span><span class="o">(</span>中继日志<span class="o">)</span><span class="w"> </span>│
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span>│<span class="w">  </span>dump<span class="w"> </span>thread<span class="w">    </span>│<span class="w">                  </span>│<span class="w">      </span>↑<span class="w">              </span>│
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span>└─────────────────┘<span class="w">                  </span>│<span class="w">  </span>IO<span class="w"> </span>Thread<span class="w">          </span>│
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">                                         </span>└─────────────────────┘
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第 1 步：主库产生 binlog</td>
+<td>客户端执行 UPDATE users SET name='Tom' WHERE id=1;，主库在事务提交前把变更写入 binlog（sync_binlog=1 时刷盘）</td>
+</tr>
+<tr>
+<td>第 2 步：Dump 线程推送</td>
+<td>主库的 dump 线程检测到 binlog 有新内容，把 event 推给从库的 IO 线程</td>
+</tr>
+<tr>
+<td>第 3 步：IO 线程写入 relay log</td>
+<td>从库 IO 线程收到 event 后，先写入本地的 relay log（中继日志），并更新 master.info（记录已拉取到主库的哪个 binlog 位置）</td>
+</tr>
+<tr>
+<td>第 4 步：SQL 线程重放</td>
+<td>从库 SQL 线程读取 relay log，解析成具体的 SQL 或行变更，在从库执行，并更新 relay-log.info（记录已重放到哪个位置）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition example">
+<p class="admonition-title">配置过程</p>
+<details class="info">
+<summary>主库开启二进制日志</summary>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">[</span>mysqld<span class="o">]</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c1"># 主库的唯一标识，整数即可，集群内不能重复</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>server-id<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">131</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># 开启二进制日志，指定日志文件前缀（关键）</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>log-bin<span class="w"> </span><span class="o">=</span><span class="w"> </span>mysql-bin
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c1"># 二进制日志格式，强烈建议使用 ROW 保证主从一致性</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="nv">binlog_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>ROW
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">必须重启 MySQL 服务使配置生效</p>
+</div>
+</details>
+<details class="info">
+<summary>主库创建一个仅具备 REPLICATION SLAVE 权限的账号</summary>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>CREATE<span class="w"> </span>USER<span class="w"> </span><span class="s1">'repl'</span>@<span class="s1">'%'</span><span class="w"> </span>IDENTIFIED<span class="w"> </span>BY<span class="w"> </span><span class="s1">'rootPwd@123'</span><span class="p">;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>GRANT<span class="w"> </span>REPLICATION<span class="w"> </span>SLAVE<span class="w"> </span>ON<span class="w"> </span>*.*<span class="w"> </span>TO<span class="w"> </span><span class="s1">'repl'</span>@<span class="s1">'%'</span><span class="p">;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>FLUSH<span class="w"> </span>PRIVILEGES<span class="p">;</span>
+</span></code></pre></div>
+</details>
+<details class="info">
+<summary>获取主库二进制日志坐标</summary>
+<details class="warning">
+<summary>业务允许短暂只读，执行 FLUSH TABLES WITH READ LOCK 后再记录坐标</summary>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>FLUSH<span class="w"> </span>TABLES<span class="w"> </span>WITH<span class="w"> </span>READ<span class="w"> </span>LOCK<span class="p">;</span><span class="w">  </span>--<span class="w"> </span>短暂锁定，确保坐标一致
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>SHOW<span class="w"> </span>BINARY<span class="w"> </span>LOG<span class="w"> </span>STATUS<span class="p">;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>+---------------+----------+--------------+------------------+-------------------+
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="p">|</span><span class="w"> </span>File<span class="w">          </span><span class="p">|</span><span class="w"> </span>Position<span class="w"> </span><span class="p">|</span><span class="w"> </span>Binlog_Do_DB<span class="w"> </span><span class="p">|</span><span class="w"> </span>Binlog_Ignore_DB<span class="w"> </span><span class="p">|</span><span class="w"> </span>Executed_Gtid_Set<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>+---------------+----------+--------------+------------------+-------------------+
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="p">|</span><span class="w"> </span>binlog.000003<span class="w"> </span><span class="p">|</span><span class="w">      </span><span class="m">858</span><span class="w"> </span><span class="p">|</span><span class="w">              </span><span class="p">|</span><span class="w">                  </span><span class="p">|</span><span class="w">                   </span><span class="p">|</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>+---------------+----------+--------------+------------------+-------------------+
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="m">1</span><span class="w"> </span>row<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="o">(</span><span class="m">0</span>.00<span class="w"> </span>sec<span class="o">)</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>UNLOCK<span class="w"> </span>TABLES
+</span></code></pre></div>
+</details>
+<details class="warning">
+<summary>对一个正在运行的服务器搭建主从复制的标准做法</summary>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># 使用mysqldump进行备份,然后恢复到从库，在根据坐标进行主从配置</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>mysqldump<span class="w"> </span>--source-data<span class="o">=</span><span class="m">2</span><span class="w"> </span>--single-transaction<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span>--routines<span class="w"> </span>--triggers<span class="w"> </span>--events<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span>-u<span class="w"> </span>root<span class="w"> </span>-p<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span>--all-databases<span class="w"> </span>&gt;<span class="w"> </span>/tmp/full_backup.sql
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="c1"># 将备份恢复到从库</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>mysql<span class="w"> </span>-uroot<span class="w"> </span>-prootPwd<span class="w"> </span>&lt;<span class="w"> </span>full_backup.sql
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="c1"># 获取主库二进制日志坐标</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>grep<span class="w"> </span>-o<span class="w"> </span><span class="s2">"SOURCE_LOG_FILE='[^']*'.*SOURCE_LOG_POS=[0-9]*"</span><span class="w"> </span>/tmp/full_backup.sql
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="nv">SOURCE_LOG_FILE</span><span class="o">=</span><span class="s1">'binlog.000003'</span>,<span class="w"> </span><span class="nv">SOURCE_LOG_POS</span><span class="o">=</span><span class="m">858</span>
+</span></code></pre></div>
+</details>
+</details>
+<details class="info">
+<summary>从库启动复制</summary>
+<p><div class="language-shell highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">select</span><span class="w"> </span>@@server_id<span class="p">;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>+-------------+
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="p">|</span><span class="w"> </span>@@server_id<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>+-------------+
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="p">|</span><span class="w">         </span><span class="m">133</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>+-------------+
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1"># 告诉从库「主库是谁、用什么账号连、从哪个位点开始同步、要不要加密」</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>CHANGE<span class="w"> </span>REPLICATION<span class="w"> </span>SOURCE<span class="w"> </span>TO
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">  </span><span class="nv">SOURCE_HOST</span><span class="o">=</span><span class="s1">'172.16.143.131'</span>,
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">  </span><span class="nv">SOURCE_USER</span><span class="o">=</span><span class="s1">'repl'</span>,
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">  </span><span class="nv">SOURCE_PASSWORD</span><span class="o">=</span><span class="s1">'rootPwd@123'</span>,
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">  </span><span class="nv">SOURCE_LOG_FILE</span><span class="o">=</span><span class="s1">'mysql-bin.000003'</span>,
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">  </span><span class="nv">SOURCE_LOG_POS</span><span class="o">=</span><span class="m">858</span>,
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">  </span><span class="nv">SOURCE_SSL</span><span class="o">=</span><span class="m">1</span><span class="p">;</span>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="c1"># 启动从库的两个复制线程。</span>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>START<span class="w"> </span>REPLICA<span class="p">;</span>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="c1"># 查看从库当前的复制状态</span>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>SHOW<span class="w"> </span>REPLICA<span class="w"> </span>STATUS<span class="se">\G</span>
+</span></code></pre></div>
+| 参数 | 说明 |
+| --- | --- |
+|SOURCE_HOST|主库的 IP 地址
+|SOURCE_USER|复制专用账号（之前 GRANT REPLICATION SLAVE 建的那个）
+|SOURCE_PASSWORD|该账号的密码
+|SOURCE_LOG_FILE|从主库的哪个 binlog 文件开始读
+|SOURCE_LOG_POS|从这个文件的哪个字节位置开始读
+|SOURCE_SSL=1|使用 TLS 加密连接，解决 caching_sha2_password 的认证要求</p>
+<div class="admonition warning">
+<p class="admonition-title">只要 Replica_IO_Running 和 Replica_SQL_Running 都是 Yes，且两个 Errno 都是 0，就说明主从复制正常</p>
+</div>
+</details>
+</div>
 
 
 
@@ -1571,6 +1656,8 @@
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
@@ -1605,11 +1692,13 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
     
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.top", "navigation.indexes", "navigation.sections", "navigation.expand", "content.code.copy", "content.code.select", "content.code.annotate", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["search.highlight", "search.share", "search.suggest", "navigation.top", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "content.tooltips", "content.tabs.link", "content.action.view", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>

@@ -1,109 +1,1171 @@
+/* =============================================================================
+   Percona Documentation — MkDocs Material Theme Customization
+   ============================================================================= */
+
+/* =============================================================================
+   1. Design Tokens
+   ============================================================================= */
+
 :root {
-  --md-text-font: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
-  --md-code-font: "JetBrains Mono", "Fira Code", monospace;
+    /* ---- Font families ---- */
+    --fHeading: "Poppins", "Roboto", Arial, Helvetica, sans-serif;
+    --fBody: "Roboto", Arial, Helvetica, sans-serif;
 
-  /* 自定义颜色变量 */
-  --heading-color-1: #0f172a;
-  --heading-color-2: #1e293b;
-  --heading-color-3: #334155;
-  --heading-color-4: #475569;
+    /* ---- Type scale (aligned with docs.percona.com) ---- */
+    --fs-root: 125%;
+    --fs-body: 0.8rem;
+    --fs-h1: 1.6rem;
+    --fs-h2: 1.4rem;
+    --fs-h3: 1.2rem;
+    --fs-h4: 1rem;
+    --fs-h5: 0.9rem;
+    --fs-h6: 0.8rem;
+    --fs-nav: 0.65rem;
+    --fs-tabs: 0.67rem;
+    --fs-code: 0.75rem;
+    --fs-table: 0.8rem;
+    --fs-small: 0.6rem;
+    --fs-button: 0.6818rem;
+
+    /* ---- Primitive colors ---- */
+    --pc-white: #fff;
+
+    /* Percona Night */
+    --pc-night-500: #0E1A53;
+    --pc-night-400: #3E4875;
+    --pc-night-300: #5E668C;
+
+    /* Percona Aqua */
+    --pc-aqua-900: #14584B;
+    --pc-aqua-800: #1A7362;
+    --pc-aqua-700: #22947E;
+    --pc-aqua-600: #2CBEA2;
+
+    /* Percona Sky */
+    --pc-sky-900: #08386B;
+    --pc-sky-800: #0B4A8C;
+    --pc-sky-700: #0E5FB5;
+    --pc-sky-600: #127AE8;
+    --pc-sky-500: #1486FF;
+    --pc-sky-400: #439EFF;
+    --pc-sky-300: #62AEFF;
+    --pc-sky-200: #93C7FF;
+
+    /* Percona Stone */
+    --pc-stone-900: #2C323E;
+    --pc-stone-800: #3A4151;
+    --pc-stone-700: #4B5468;
+    --pc-stone-100: #D1D5DE;
+    --pc-stone-50:  #F0F1F4;
+
+    /* Brand accents */
+    --pc-orange-600: #AB4213;
+    --pc-orange-500: #e65a15;
+    --pc-orange-400: #EB6F3B;
+    --pc-orange-100: #E7C8BB;
+    --pc-neutral-900: #282727;
+
+    /* mkdocs root override */
+    --md-primary-fg-color--dark: var(--pc-night-400);
 }
 
-/* ===== 全局基础字体：16px 是浏览器默认值，阅读最舒适 ===== */
+/* ---- Light theme ---- */
+:root,
+[data-md-color-scheme="percona-light"] {
+    --md-hue: 220;
+    --md-primary-fg-color: var(--pc-sky-700);
+
+    --md-typeset-color: var(--pc-stone-900);
+    --md-typeset-a-color: var(--pc-sky-700);
+
+    --md-default-bg-color: var(--pc-white);
+    --md-default-fg-color: var(--pc-stone-900);
+    --md-default-fg-color--light: rgba(44, 50, 62, 0.72);
+    --md-default-fg-color--lighter: rgba(44, 50, 62, 0.40);
+    --md-default-fg-color--lightest: rgba(44, 50, 62, 0.25);
+
+    --md-accent-fg-color: var(--pc-sky-500);
+
+    --md-footer-fg-color: var(--pc-stone-900);
+    --md-footer-fg-color--light: rgba(44, 50, 62, 0.72);
+    --md-footer-fg-color--lighter: rgba(44, 50, 62, 0.40);
+    --md-footer-bg-color: var(--pc-stone-50);
+    --md-footer-bg-color--dark: var(--pc-stone-50);
+
+    --md-code-bg-color: var(--pc-stone-50);
+
+    --md-typeset-table-color: hsla(var(--md-hue), 17%, 21%, 0.25);
+}
+
+/* ---- Dark theme ---- */
+[data-md-color-scheme="percona-dark"] {
+    --md-hue: 0;
+    --md-primary-fg-color: var(--pc-sky-200);
+
+    --md-typeset-color: #FBFBFB;
+    --md-typeset-a-color: var(--pc-sky-200);
+
+    --md-default-bg-color: var(--pc-stone-900);
+    --md-default-fg-color: var(--pc-white);
+    --md-default-fg-color--light: rgba(251, 251, 251, 0.72);
+    --md-default-fg-color--lighter: rgba(251, 251, 251, 0.4);
+    --md-default-fg-color--lightest: rgba(209, 213, 222, 0.25);
+
+    --md-accent-fg-color: var(--pc-sky-400);
+    --md-accent-bg-color: var(--pc-stone-900);
+
+    --md-footer-fg-color: #FBFBFB;
+    --md-footer-fg-color--light: rgba(251, 251, 251, 0.72);
+    --md-footer-fg-color--lighter: rgba(251, 251, 251, 0.4);
+    --md-footer-bg-color: var(--pc-stone-800);
+    --md-footer-bg-color--dark: var(--pc-stone-800);
+
+    --md-code-bg-color: var(--pc-stone-800);
+
+    --md-typeset-table-color: hsla(var(--md-hue), 0%, 100%, 0.25);
+}
+
+/* =============================================================================
+   2. Custom Fonts
+   ============================================================================= */
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins-Italic.ttf");
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins-SemiBold.ttf");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins-SemiBoldItalic.ttf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* =============================================================================
+   3. Typography
+   ============================================================================= */
+
 html {
-  font-size: 16px;
+    font-size: var(--fs-root);
 }
 
-/* ===== 标题层级 ===== */
-/* 采用 1.25 倍音阶，视觉层次清晰且不夸张 */
-
-.md-typeset h1 {
-  font-size: 2.25em;          /* ~36px */
-  font-weight: 800;
-  color: var(--heading-color-1);
-  letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  border-bottom: none;
-  margin-top: 1.6em;
-  margin-bottom: 0.6em;
+.md-typeset {
+    font-size: var(--fs-body);
+    line-height: 1.6;
 }
 
-.md-typeset h2 {
-  font-size: 1.75em;          /* ~28px */
-  font-weight: 700;
-  color: var(--heading-color-2);
-  border-left: 5px solid #3b82f6;
-  padding-left: 0.8em;
-  margin-top: 1.4em;
-  margin-bottom: 0.5em;
-}
-
-.md-typeset h3 {
-  font-size: 1.4em;           /* ~22.4px */
-  font-weight: 600;
-  color: var(--heading-color-3);
-  margin-top: 1.2em;
-  margin-bottom: 0.4em;
-}
-
-.md-typeset h4 {
-  font-size: 1.15em;          /* ~18.4px */
-  font-weight: 600;
-  color: var(--heading-color-4);
-  margin-top: 1em;
-  margin-bottom: 0.3em;
-}
-
-.md-typeset h5 {
-  font-size: 1em;             /* 16px，与正文一致，靠字重区分 */
-  font-weight: 600;
-  color: #64748b;
-  margin-top: 0.8em;
-  margin-bottom: 0.2em;
-}
-
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
 .md-typeset h6 {
-  font-size: 0.9em;           /* ~14.4px */
-  font-weight: 500;
-  color: #94a3b8;
-  font-style: italic;
-  margin-top: 0.6em;
-  margin-bottom: 0.2em;
+    font-family: var(--fHeading);
+    font-weight: bold;
+}
+.md-typeset h1 { font-size: var(--fs-h1); margin: 0 0 0.75em; color: inherit; }
+.md-typeset h2 { font-size: var(--fs-h2); }
+.md-typeset h3 { font-size: var(--fs-h3); }
+.md-typeset h4 { font-size: var(--fs-h4); }
+.md-typeset h5 { font-size: var(--fs-h5); }
+.md-typeset h6 { font-size: var(--fs-h6); }
+
+.md-header :not(.md-search__suggest) {
+    font-family: var(--fHeading);
+    font-weight: bold;
+}
+.md-header__button.md-logo {
+    margin: 0.2rem 0.1rem 0.2rem 0.4rem;
+    padding: 0.2rem;
+}
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+    height: 1.6rem;
+}
+.md-nav__link--active {
+    font-weight: bold;
+}
+.md-typeset small {
+    opacity: 0.5;
+    font-size: 0.85em;
+}
+.md-content a:not(.md-button) {
+    text-decoration: underline;
+}
+.md-content .tabbed-labels a {
+    text-decoration: none;
 }
 
-/* ===== 正文段落 ===== */
-.md-typeset p {
-  font-size: 1em;             /* 16px */
-  line-height: 1.75;          /* 略增行高，中文阅读更舒适 */
+/* =============================================================================
+   4. Header & Tabs
+   ============================================================================= */
+
+.md-header,
+.md-tabs {
+    background-color: var(--pc-night-400);
+}
+[dir=ltr] .md-header__title { margin-left: 0; }
+[dir=rtl] .md-header__title { margin-right: 0; }
+
+.md-tabs .md-tabs__link {
+    font-family: var(--fHeading);
+    font-weight: bold;
+}
+.md-nav__source {
+    margin-top: -0.25rem;
+}
+.md-header__inner > :last-child {
+    padding-right: 0.6rem;
+}
+.md-tabs__item {
+    height: 2rem;
+}
+.md-tabs__link {
+    margin-top: 0.55rem;
+    font-size: var(--fs-tabs);
+}
+.md-tabs__item--active .md-tabs__link,
+.md-tabs__item--active .md-tabs__link a {
+    font-weight: bold;
+    border-bottom: 0.15em solid currentColor;
 }
 
-/* ===== 列表 ===== */
-.md-typeset ul,
-.md-typeset ol {
-  font-size: 1em;
-  line-height: 1.75;
+/* =============================================================================
+   5. Footer
+   ============================================================================= */
+
+.md-footer a {
+    text-decoration: underline;
+}
+.md-copyright,
+.md-copyright__highlight {
+    color: var(--md-footer-fg-color--light);
 }
 
-/* ===== 代码 ===== */
+/* =============================================================================
+   6. Base Components
+   ============================================================================= */
+
+.md-typeset .md-button {
+    font-family: var(--fHeading);
+    font-size: var(--fs-button);
+    font-weight: bold;
+    padding: 0.4167em 1.6em;
+    border-radius: 10rem;
+    transition: box-shadow 0.2s ease-out, color 0.2s ease-out, background-color 0.2s ease-out;
+}
+.md-typeset .md-button--primary {
+    color: var(--md-accent-bg-color);
+    box-shadow:
+        0px 1px 5px 0px rgba(0, 0, 0, 0.12),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.20);
+}
+.md-typeset .md-button--primary:focus,
+.md-typeset .md-button--primary:hover {
+    box-shadow:
+        0px 1px 10px 0px rgba(0, 0, 0, 0.12),
+        0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+        0px 2px 4px -1px rgba(0, 0, 0, 0.20);
+}
+.md-typeset .md-button:not(.md-button--primary):focus,
+.md-typeset .md-button:not(.md-button--primary):hover {
+    background: none;
+    color: var(--md-accent-fg-color);
+}
+.md-content .md-button {
+    margin: 0 0.25em 0.5em 0;
+}
 .md-typeset code {
-  font-size: 0.9em;           /* 行内代码 ~14.4px，比正文略小 */
+    font-size: 0.9091em;
+    color: var(--md-typeset-color);
+    vertical-align: baseline;
+    padding: 0 0.2em 0.1em;
+    border-radius: 0.15em;
+    white-space: pre-wrap;
+}
+.md-typeset pre > code,
+.md-typeset .highlight code {
+    font-size: var(--fs-code);
+}
+.md-typeset .highlight code span,
+.md-typeset code,
+.md-typeset kbd,
+.md-typeset pre {
+    color: var(--md-typeset-color);
+}
+.md-typeset table:not([class]) {
+    font-size: var(--fs-table);
+}
+.md-button code,
+[data-md-color-scheme="percona-dark"] .md-button:not(.md-button--primary) code {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1) inset;
+}
+.md-button:not(.md-button--primary) code {
+    background-color: rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05) inset;
+}
+.md-typeset hr {
+    margin: 2em 0;
+    border-color: var(--md-default-fg-color--lightest);
+}
+.md-clipboard {
+    color: var(--md-default-fg-color--lighter);
+}
+.md-typeset [type=checkbox]:checked + .task-list-indicator:before {
+    background-color: var(--pc-aqua-600);
 }
 
-.md-typeset pre > code {
-  font-size: 0.875em;         /* 代码块 ~14px，等宽字体下更清晰 */
-  line-height: 1.6;
+/* =============================================================================
+   7. Tabbed Content
+   ============================================================================= */
+
+.md-typeset .tabbed-labels--linked > label > a {
+    font-size: 0.75rem;
+    padding: 0.75em 1em;
+}
+.md-typeset .tabbed-labels {
+    box-shadow: 0 -0.05rem var(--md-default-fg-color--lightest) inset;
+}
+.md-typeset .tabbed-labels > label:hover {
+    color: var(--md-accent-fg-color);
+}
+.js .md-typeset .tabbed-labels:before {
+    height: 4px;
+    background-color: var(--md-typeset-a-color);
+}
+.md-typeset .tabbed-set > input:checked ~ .tabbed-labels > label {
+    color: var(--md-typeset-a-color);
+}
+.md-typeset .tabbed-button {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: 0.0625rem;
+}
+.md-typeset .tabbed-control {
+    width: 2.25rem;
+    height: 2.25rem;
+}
+.tabbed-block > *:last-child {
+    margin-bottom: 0;
+}
+.md-typeset .tabbed-set [class*="moji"] {
+    height: 1.3333em;
+    vertical-align: -0.3333em;
+}
+.md-typeset .tabbed-set [class*="moji"] svg {
+    width: 1.3333em;
 }
 
-/* ===== 表格 ===== */
-.md-typeset table {
-  font-size: 0.925em;         /* ~14.8px，表格内文字稍小以容纳更多列 */
+/* =============================================================================
+   8. Emoji
+   ============================================================================= */
+
+.md-typeset [class*="moji"] {
+    vertical-align: -0.25em;
+}
+.md-typeset .md-button [class*="moji"] {
+    height: 1.3333em;
+    vertical-align: -0.3333em;
+}
+.md-typeset .md-button [class*="moji"] svg {
+    width: 1.3333em;
+}
+.md-typeset a [class*="moji"] {
+    vertical-align: -0.2222em;
 }
 
-/* ===== 引用块 ===== */
-.md-typeset blockquote {
-  font-size: 1em;
-  line-height: 1.75;
+/* =============================================================================
+   9. Layout & Content Re-styling
+   ============================================================================= */
+
+.md-main__inner {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+.md-feedback {
+    margin: 2em 0;
+}
+:not([data-banner]):not(.splash) + .md-feedback {
+    padding-top: 2em;
+    border-top: 0.05rem solid var(--md-default-fg-color--lightest);
+}
+.md-typeset .admonition,
+.md-typeset details {
+    --md-admonition-bg-color: var(--md-default-bg-color);
+    --md-admonition-fg-color: var(--md-typeset-color);
+    border-width: 0.1125rem;
+    box-shadow: none;
+}
+.md-sidebar__scrollwrap {
+    scrollbar-gutter: unset;
+}
+
+/* =============================================================================
+   10. Sidebar
+   ============================================================================= */
+
+.md-sidebar__inner {
+    font-size: var(--fs-nav);
+    line-height: 1.6;
+}
+
+/* =============================================================================
+   11. Edit / Contribute Banner
+   ============================================================================= */
+
+.edit-contrib-banner {
+    display: flex;
+    justify-content: center;
+    padding: 0.7rem 0;
+    background-color: transparent;
+}
+.edit-contrib-banner .banner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+.edit-contrib-banner .edit-page-link {
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: var(--md-typeset-a-color);
+}
+.edit-contrib-banner .edit-page-icon svg {
+    width: 1.4em;
+    height: 1.4em;
+    fill: currentColor;
+    vertical-align: middle;
+}
+.edit-contrib-banner .banner-divider {
+    width: 40%;
+    border-top: 1px solid var(--md-typeset-a-color);
+    opacity: 0.3;
+    margin: 0.2rem 0;
+}
+.edit-contrib-banner .contrib-link {
+    font-size: var(--fs-small);
+    color: var(--md-typeset-a-color);
+}
+
+/* =============================================================================
+   12. Custom Banner
+   ============================================================================= */
+
+[data-banner] {
+    padding: 1.5em;
+    margin: 1.5em 0;
+    border: 0.05rem solid var(--md-default-fg-color--lightest);
+    border-radius: 0.2rem;
+    transition: box-shadow 0.2s ease-out;
+}
+[data-banner]:hover {
+    box-shadow:
+        0px 1px 10px 0px rgba(0, 0, 0, 0.12),
+        0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+        0px 2px 4px -1px rgba(0, 0, 0, 0.20);
+}
+[data-banner] .title {
+    font-weight: bold;
+    margin: 0;
+}
+[data-banner] .title + * {
+    margin-top: 0.25em;
+}
+[data-banner] > :last-child {
+    margin-bottom: 0;
+}
+[data-banner] a:link {
+    font-family: var(--fHeading);
+    font-size: var(--fs-button);
+    font-weight: bold;
+    text-decoration: none;
+}
+[data-banner] .actions > p {
+    margin: 0;
+}
+[data-banner] .actions a {
+    display: inline-block;
+    margin: 0 1em 0 0;
+}
+[data-banner] > :only-child,
+[data-banner] .actions a:first-of-type {
+    margin-top: 0;
+}
+[data-banner] a [class*="moji"] {
+    height: 1.3333em;
+    vertical-align: -0.3333em;
+}
+[data-banner] a [class*="moji"] svg {
+    width: 1.3333em;
+}
+[data-banner="logo"] > p:first-child {
+    margin-top: 0;
+}
+[data-banner="logo"] > p:first-child [class*="moji"] {
+    font-size: 4em;
+}
+
+/* Banner grid */
+[data-grid] {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -1rem;
+}
+[data-grid] [data-banner] {
+    flex: 1 1 320px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem 1rem 0;
+}
+[data-grid] .title {
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+[data-grid] [data-banner] > p:last-child {
+    margin-top: 0;
+}
+[data-grid] [data-banner] > p:nth-last-child(2) {
+    flex-grow: 2;
+}
+[data-grid] + [data-banner] {
+    margin-top: 0;
+}
+[data-grid] .md-button {
+    margin: 0.5em 0.25em 0 0;
+}
+
+/* =============================================================================
+   13. Custom Lists (power-bullet / power-number)
+   ============================================================================= */
+
+[dir] .power-bullet + ul,
+[dir] .power-bullet + ul ul,
+[dir] .power-bullet + ul ol,
+[dir] .power-number + ol,
+[dir] .power-number + ol ol,
+[dir] .power-number + ol ul {
+    list-style: none;
+    --power-list-indent: 2em;
+    --power-list-gap: 0.5em;
+    --power-list-counter-size: calc(var(--power-list-indent) - var(--power-list-gap));
+    margin: 1.25em 0 2em;
+}
+[dir] .power-bullet + ul ul:last-child,
+[dir] .power-bullet + ul ol:last-child,
+[dir] .power-number + ol ol:last-child,
+[dir] .power-number + ol ul:last-child {
+    margin-bottom: 0;
+}
+.power-bullet + ul > li:not(:last-child),
+.power-bullet + ul ul > li:not(:last-child),
+.power-bullet + ul ol > li:not(:last-child),
+.power-number + ol > li:not(:last-child),
+.power-number + ol ol > li:not(:last-child),
+.power-number + ol ul > li:not(:last-child) {
+    margin-bottom: 1.25em;
+}
+[dir=ltr] .power-bullet + ul > li,
+[dir=ltr] .power-bullet + ul ul > li,
+[dir=ltr] .power-bullet + ul ol > li,
+[dir=ltr] .power-number + ol > li,
+[dir=ltr] .power-number + ol ol > li,
+[dir=ltr] .power-number + ol ul > li {
+    margin-left: var(--power-list-indent);
+}
+[dir=rtl] .power-bullet + ul > li,
+[dir=rtl] .power-bullet + ul ul > li,
+[dir=rtl] .power-bullet + ul ol > li,
+[dir=rtl] .power-number + ol > li,
+[dir=rtl] .power-number + ol ol > li,
+[dir=rtl] .power-number + ol ul > li {
+    margin-right: var(--power-list-indent);
+}
+.power-bullet + ul > li::before,
+.power-bullet + ul ul > li::before,
+.power-number + ol ul > li::before {
+    content: "→";
+}
+.power-number + ol,
+.power-number + ol ol,
+.power-bullet + ul ol {
+    counter-reset: power-list;
+}
+.power-number + ol > li,
+.power-number + ol ol > li,
+.power-bullet + ul ol > li {
+    counter-increment: power-list;
+    position: relative;
+}
+.power-number + ol > li::before,
+.power-number + ol ol > li::before,
+.power-bullet + ul ol > li::before {
+    content: counter(power-list);
+    font-family: var(--fHeading);
+}
+.power-bullet + ul > li::before,
+.power-bullet + ul ul > li::before,
+.power-bullet + ul ol > li::before,
+.power-number + ol > li::before,
+.power-number + ol ol > li::before,
+.power-number + ol ul > li::before {
+    display: inline-block;
+    position: absolute;
+    font-weight: bold;
+    text-align: center;
+    line-height: var(--power-list-counter-size);
+    width: var(--power-list-counter-size);
+    height: var(--power-list-counter-size);
+    margin-right: var(--power-list-gap);
+    border-radius: 50%;
+    color: var(--md-default-bg-color);
+    background-color: var(--md-typeset-color);
+}
+[dir=ltr] .power-bullet + ul > li::before,
+[dir=ltr] .power-bullet + ul ul > li::before,
+[dir=ltr] .power-bullet + ul ol > li::before,
+[dir=ltr] .power-number + ol > li::before,
+[dir=ltr] .power-number + ol ol > li::before,
+[dir=ltr] .power-number + ol ul > li::before {
+    margin-left: calc(var(--power-list-indent) - (var(--power-list-indent) * 2));
+}
+[dir=rtl] .power-bullet + ul > li::before,
+[dir=rtl] .power-bullet + ul ul > li::before,
+[dir=rtl] .power-bullet + ul ol > li::before,
+[dir=rtl] .power-number + ol > li::before,
+[dir=rtl] .power-number + ol ol > li::before,
+[dir=rtl] .power-number + ol ul > li::before {
+    margin-right: calc(var(--power-list-indent) - (var(--power-list-indent) * 2));
+}
+.power-bullet + ul ul > li::before,
+.power-bullet + ul ol > li::before,
+.power-number + ol ul > li::before,
+.power-number + ol ol > li::before {
+    opacity: 0.3;
+}
+
+/* =============================================================================
+   14. Custom Highlights (inline notes)
+   ============================================================================= */
+
+i[info],
+i[warning] {
+    font-style: normal;
+    font-weight: bold;
+    display: inline-block;
+    padding: 0 0.25em;
+    border-radius: 0.2em;
+}
+i[info] {
+    background-color: #00b8d41a;
+    border: 0.05rem solid #00b8d41a;
+}
+i[info] [class*="moji"] {
+    color: #00b8d4;
+}
+i[warning] {
+    background-color: #ff91001a;
+    border: 0.05rem solid #ff91001a;
+}
+i[warning] [class*="moji"] {
+    color: #ff9100;
+}
+
+/* =============================================================================
+   15. Consent Modal (MdConsent)
+   ============================================================================= */
+
+.md-consent__overlay {
+    -webkit-backdrop-filter: blur(.2rem);
+            backdrop-filter: blur(.2rem);
+    background-color: rgba(44, 50, 62, 0.72);
+}
+.md-consent__inner {
+    background-color: var(--md-footer-bg-color--dark);
+}
+
+/* =============================================================================
+   16. Code Injections
+   ============================================================================= */
+
+.injections {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* =============================================================================
+   17. Super Nav
+   ============================================================================= */
+
+.superNav {
+    font-family: var(--fHeading);
+    font-size: 0.5625rem;
+    line-height: 1;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.0625em;
+    color: var(--pc-white);
+    background-color: var(--pc-stone-800);
+}
+.superNav a {
+    display: inline-block;
+    padding: 0.25rem 0.625rem;
+    transition: opacity 0.2s ease-out;
+}
+.superNav a:hover {
+    opacity: 0.7;
+}
+.superNav svg {
+    width: 1.375em;
+    height: 1.375em;
+    margin-right: 0.125em;
+    fill: currentColor;
+    vertical-align: -0.3125em;
+}
+
+/* =============================================================================
+   18. Version Select
+   ============================================================================= */
+
+.version-select::after {
+    content: "\25BE";
+    display: inline-block;
+    margin-left: -1em;
+    transform: translate(-0.625em, -0.0625em);
+    pointer-events: none;
+}
+#versionSelect {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    align-self: center;
+    font-family: var(--fHeading);
+    font-size: 0.9rem;
+    line-height: 1;
+    font-weight: 700;
+    padding: 0.5em 1.375em 0.5em 0.5em;
+    margin: 0 0.25em;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: inherit;
+    border: none;
+    border-radius: 0.1rem;
+}
+#versionSelect::-ms-expand {
+    display: none;
+}
+
+/* =============================================================================
+   19. Mike Version Select
+   ============================================================================= */
+
+.md-version__current,
+.md-version__link {
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1;
+    padding: 0.5em;
+}
+.md-version__current {
+    top: unset;
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+    border-radius: 0.1rem;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.md-version__current::after {
+    width: 0.5em;
+    height: 0.75em;
+}
+.md-version__list {
+    top: 0.1em;
+    margin: 0.25em;
+    border-radius: 0.1rem;
+}
+[dir="ltr"] .md-version__current::after {
+    margin-left: 0.4em;
+}
+[dir="rtl"] .md-version__current::after {
+    margin-right: 0.4em;
+}
+[dir="ltr"] .md-version__link {
+    padding-left: 0.5em;
+    padding-right: 1.4375em;
+}
+[dir="rtl"] .md-version__link {
+    padding-left: 1.4375em;
+    padding-right: 0.5em;
+}
+
+/* =============================================================================
+   20. Ask Percona AI Button
+   ============================================================================= */
+
+#ask-percona-ai {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    height: 1.8rem;
+    padding: 0 0.9rem;
+    margin-left: 0.5rem;
+    border: none;
+    border-radius: 0.1rem;
+    background: var(--pc-orange-600);
+    color: var(--pc-orange-100);
+    box-shadow: var(--md-shadow-z1);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1;
+    white-space: nowrap;
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+#ask-percona-ai:hover {
+    background: var(--pc-orange-400);
+}
+#ask-percona-ai:focus-visible {
+    outline: none;
+    box-shadow:
+        0 0 0 0.1rem rgba(235, 111, 59, 0.35),
+        var(--md-shadow-z2);
+}
+#ask-percona-ai .percona-star,
+#ask-percona-ai .percona-text {
+    color: inherit;
+}
+#ask-percona-ai .percona-star {
+    font-size: 0.85rem;
+    line-height: 1;
+}
+
+/* =============================================================================
+   21. Theme Overrides
+   ============================================================================= */
+
+.md-header,
+.md-tabs {
+    background: var(--pc-orange-500);
+}
+.superNav,
+.md-nav__source {
+    background: var(--pc-neutral-900);
+}
+.highlight.no-copy .md-clipboard {
+    display: none;
+}
+
+/* =============================================================================
+   22. Cookie Consent (Osano)
+   ============================================================================= */
+
+.osano-cm-window {
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+.osano-cm-dialog--type_bar {
+    justify-content: center;
+    color: #000;
+    background: #fff;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.66);
+}
+.osano-cm-dialog {
+    font-size: 0.75em;
+    padding: 2em 1em;
+    color: var(--md-typeset-color);
+    background: var(--md-footer-bg-color--dark);
+}
+.osano-cm-header,
+.osano-cm-info-dialog-header {
+    background: var(--md-default-bg-color);
+}
+.osano-cm-link,
+.osano-cm-disclosure__toggle,
+.osano-cm-expansion-panel__toggle {
+    color: var(--md-typeset-a-color);
+}
+.osano-cm-link:hover,
+.osano-cm-link:active,
+.osano-cm-disclosure__toggle:hover,
+.osano-cm-disclosure__toggle:active,
+.osano-cm-disclosure__toggle:focus,
+.osano-cm-expansion-panel__toggle:hover,
+.osano-cm-expansion-panel__toggle:active,
+.osano-cm-expansion-panel__toggle:focus {
+    color: var(--md-accent-fg-color);
+}
+.osano-cm-drawer-links {
+    display: inline-block;
+}
+.osano-cm-link.osano-cm-storage-policy {
+    margin-right: 0.5em;
+}
+.osano-cm-description {
+    font-weight: 400;
+}
+.osano-cm-info {
+    color: var(--md-typeset-color);
+    background: var(--md-default-bg-color);
+    box-shadow: unset;
+}
+.osano-cm-dialog--hidden,
+.osano-cm-info-dialog--hidden {
+    transition-delay: 0ms, 0ms;
+}
+.osano-cm-disclosure {
+    padding-top: 0;
+}
+.osano-cm-disclosure--collapse {
+    border-color: var(--md-default-fg-color--lightest);
+}
+.osano-cm-list {
+    gap: 0.75em;
+}
+
+/* Osano — closing button */
+.osano-cm-dialog__close,
+.osano-cm-dialog__close:hover,
+.osano-cm-dialog__close:focus,
+.osano-cm-dialog__close:focus:hover {
+    color: var(--md-typeset-color);
+    stroke: var(--md-typeset-color);
+    border-color: transparent;
+    outline: initial;
+}
+.osano-cm-dialog__close:focus {
+    background-color: var(--md-default-fg-color--lightest);
+}
+.osano-cm-close {
+    padding: 0.25em;
+    margin: 0.5em;
+    stroke-width: 2px;
+    border-width: 2px;
+    opacity: 0.4;
+}
+.osano-cm-close:focus,
+.osano-cm-close:hover {
+    stroke-width: 2px;
+    opacity: 1;
+}
+.osano-cm-info-dialog-header__close:focus {
+    background-color: var(--md-typeset-color);
+}
+
+/* Osano — switch buttons */
+.osano-cm-toggle__switch {
+    background-color: var(--md-default-fg-color--lightest);
+    transition: background-color 0.1s ease-out, border-color 0.1s ease-out;
+}
+.osano-cm-toggle__input:hover + .osano-cm-toggle__switch {
+    background-color: var(--md-default-fg-color--light);
+    border-color: transparent;
+}
+.osano-cm-toggle__input:focus + .osano-cm-toggle__switch {
+    background-color: var(--md-default-fg-color--lightest);
+    border-color: transparent;
+}
+.osano-cm-toggle__input:focus + .osano-cm-toggle__switch::before {
+    border-color: var(--md-accent-fg-color);
+}
+.osano-cm-toggle__input:focus:hover + .osano-cm-toggle__switch {
+    background-color: var(--md-default-fg-color--light);
+    border-color: transparent;
+}
+.osano-cm-toggle__input:checked + .osano-cm-toggle__switch,
+.osano-cm-toggle__input:disabled:checked + .osano-cm-toggle__switch {
+    background-color: var(--md-primary-fg-color);
+    border-color: var(--md-primary-fg-color);
+}
+.osano-cm-toggle__input:checked:hover + .osano-cm-toggle__switch,
+.osano-cm-toggle__input:disabled:checked:hover + .osano-cm-toggle__switch {
+    background-color: var(--md-accent-fg-color);
+    border-color: var(--md-accent-fg-color);
+}
+.osano-cm-toggle__input:checked:focus + .osano-cm-toggle__switch,
+.osano-cm-toggle__input:disabled:checked:focus + .osano-cm-toggle__switch {
+    background-color: var(--md-primary-fg-color);
+    border-color: var(--md-primary-fg-color);
+}
+.osano-cm-toggle__input:checked:focus + .osano-cm-toggle__switch::before {
+    border-color: var(--md-accent-fg-color);
+}
+.osano-cm-toggle__input:checked:focus:hover + .osano-cm-toggle__switch {
+    background-color: var(--md-accent-fg-color);
+    border-color: var(--md-accent-fg-color);
+}
+.osano-cm-toggle__input:disabled:checked + .osano-cm-toggle__switch,
+.osano-cm-toggle__input:disabled:checked:focus + .osano-cm-toggle__switch,
+.osano-cm-toggle__input:disabled:checked:hover + .osano-cm-toggle__switch {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+.osano-cm-toggle__input + .osano-cm-toggle__switch::after {
+    background-color: var(--md-default-bg-color);
+}
+.osano-cm-toggle__input:checked + .osano-cm-toggle__switch::before {
+    border-color: transparent;
+}
+
+/* Osano — CTA buttons */
+.osano-cm-dialog__buttons {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5em 0.75em;
+}
+.osano-cm-button {
+    font-family: var(--fHeading);
+    flex: 1 1 20em;
+    color: var(--md-primary-fg-color);
+    background-color: transparent;
+    border-width: 2px;
+    border-color: var(--md-primary-fg-color);
+    border-radius: 20em;
+}
+.osano-cm-button:hover {
+    color: var(--md-accent-fg-color);
+    background-color: transparent;
+    border-color: var(--md-accent-fg-color);
+}
+
+/* Osano — widget */
+.osano-cm-widget {
+    display: none;
+    opacity: 0.5;
+    border-radius: 10em;
+    bottom: 3em;
+}
+.osano-cm-widget:focus {
+    outline-offset: 0.125em;
+    outline-color: var(--md-default-fg-color--lighter);
+    outline-width: 0.1875em;
+}
+.osano-cm-widget__outline {
+    fill: transparent;
+    stroke: var(--md-typeset-color);
+}
+.osano-cm-widget__dot {
+    fill: var(--md-typeset-color);
+}
+@media screen and (min-width: 768px) {
+    .osano-cm-dialog--type_bar .osano-cm-dialog__content {
+        max-width: 50em;
+    }
+    .osano-cm-dialog--type_bar .osano-cm-dialog__buttons {
+        max-width: 20em;
+    }
+}
+
+/* =============================================================================
+   23. Feedback / Rating Widget
+   ============================================================================= */
+
+.rating-widget:hover,
+#feedback-form:hover {
+    box-shadow:
+        0px 1px 10px 0px rgba(0, 0, 0, 0.12),
+        0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+        0px 2px 4px -1px rgba(0, 0, 0, 0.20);
+}
+.rating-widget .rating-title {
+    color: var(--md-typeset-a-color, #0E5FB5);
+}
+#feedback-status {
+    color: var(--md-typeset-a-color);
+}
+#submit-feedback {
+    color: white;
+}
+@media (prefers-color-scheme: dark) {
+    .rating-widget .rating-title {
+        color: var(--md-typeset-a-color, #93C7FF);
+    }
+    #feedback-status {
+        color: var(--md-typeset-a-color, #93C7FF);
+    }
+    #submit-feedback {
+        background-color: var(--md-typeset-a-color, #93C7FF);
+        color: #999;
+    }
+}
+
+/* =============================================================================
+   24. Media Queries — Layout & Responsive Typography
+   ============================================================================= */
+
+@media screen and (max-width: 76.1875em) {
+    :root {
+        --fs-body: 0.75rem;
+        --fs-h1: 1.5rem;
+        --fs-h2: 1.3rem;
+        --fs-h3: 1.15rem;
+    }
+
+    .md-nav--primary .md-nav__title[for=__drawer],
+    .md-nav--primary .md-nav__title {
+        line-height: 1.5;
+        height: unset;
+        padding: 3.5rem .8rem 0.5rem;
+        color: var(--md-primary-bg-color);
+        background-color: var(--md-primary-fg-color--dark);
+    }
+}
+
+@media screen and (max-width: 60em) {
+    [data-banner] {
+        padding: 1em;
+    }
+}
+
+@media screen and (max-width: 44.9375em) {
+    :root {
+        --fs-body: 0.7rem;
+        --fs-h1: 1.4rem;
+        --fs-h2: 1.2rem;
+        --fs-h3: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #ask-percona-ai {
+        padding: 0 0.75rem;
+    }
+    #ask-percona-ai .percona-text {
+        display: none;
+    }
+}
+
+/* =============================================================================
+   25. Print
+   ============================================================================= */
+
+@media print {
+    /* Adjusts positioning of admonition icon */
+    .md-typeset :is(.admonition-title, summary)::before {
+        top: 0.6rem;
+        left: 0.6rem;
+    }
 }
